@@ -1,0 +1,30 @@
+.all {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+
+}
+
+/*.flex-menu {*/
+/*  list-style-type: none;*/
+/*  display: flex;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*}*/
+
+.subCategory {
+  display: flex;
+  flex-direction: row;
+}
+
+.user {
+  margin-right: 1em;
+}
+
+.cart {
+
+}
