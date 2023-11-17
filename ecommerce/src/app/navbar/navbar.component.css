@@ -12,11 +12,13 @@
   padding: 0.5em;
 
   background-color: cadetblue;
+  font-family: "Segoe UI";
 }
 
 .logo {
   width: 10vw;
   padding-left: 1em;
+  cursor: pointer;
 }
 
 /*.flex-menu {*/
@@ -29,6 +31,7 @@
 .subCategory {
   display: flex;
   flex-direction: row;
+  margin-right: 3em;
 }
 
 .user {
