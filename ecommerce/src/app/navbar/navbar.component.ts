@@ -18,5 +18,8 @@ export class NavbarComponent {
     this.router.navigate(['/home'])
   }
 
+  goProdottiPage() {
+    this.router.navigate(['/products-page'])
+  }
 
 }

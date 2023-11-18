@@ -11,7 +11,7 @@
 
   padding: 0.5em;
 
-  background-color: cadetblue;
+  background-color: var(--primary-color);
   font-family: "Segoe UI";
 }
 
@@ -32,6 +32,10 @@
   display: flex;
   flex-direction: row;
   margin-right: 3em;
+}
+
+.prodotti {
+  margin-right: 1em;
 }
 
 .user {
