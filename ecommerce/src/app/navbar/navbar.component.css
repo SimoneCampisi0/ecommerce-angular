@@ -36,6 +36,12 @@
 
 .prodotti {
   margin-right: 1em;
+  cursor: pointer;
+  transition-duration: 0.1s;
+}
+
+.prodotti:hover {
+  color: white;
 }
 
 .user {
