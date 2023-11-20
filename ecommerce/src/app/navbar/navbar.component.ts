@@ -15,11 +15,15 @@ export class NavbarComponent {
   }
 
   goHome() {
-    this.router.navigate(['/home'])
+    this.router.navigate(['home'])
   }
 
-  goProdottiPage() {
-    this.router.navigate(['/products-page'])
+  // goProdottiPage() {
+  //   this.router.navigate(['products-page'])
+  // }
+
+  cambiaPagina(pagina: string) {
+    this.router.navigate([pagina])
   }
 
 }

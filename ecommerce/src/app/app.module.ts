@@ -9,6 +9,8 @@ import { HeroComponent } from './hero/hero.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductViewComponent } from "./product-page/product-view/product-view.component";
 import { ProductComponent } from "./product-page/product-view/product/product.component";
+import { LoginPageComponent } from './login-module/login-page/login-page.component';
+import {LoginModule} from "./login-module/login.module";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ProductComponent } from "./product-page/product-view/product/product.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

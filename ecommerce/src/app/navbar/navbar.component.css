@@ -44,6 +44,11 @@
   color: white;
 }
 
+.active {
+  color: white;
+}
+
+
 .user {
   margin-right: 1em;
 }

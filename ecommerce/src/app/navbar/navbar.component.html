@@ -1,5 +1,5 @@
 <div class="all">
-    <img class="logo" src="../../assets/logo/logo_black.png" alt="" srcset="" (click)="goHome()">
+    <img class="logo" src="../../assets/logo/logo_black.png" alt="" srcset="" (click)="cambiaPagina('home')">
 
 
 <!--  <ul class="flex-menu">-->
@@ -7,8 +7,15 @@
 <!--  </ul>-->
 
   <div class="subCategory">
-    <div class="prodotti" (click)="goProdottiPage()">PRODOTTI</div>
+    <div class="prodotti" (click)="cambiaPagina('products-page')" routerLink="/products-page" routerLinkActive="active">PRODOTTI</div>
     <div class="user">USER</div>
     <div class="cart">CART</div>
   </div>
+
+<!--  <ul class="menu-flex">-->
+<!--    <li class="flex-item"><a class="menu-item" routerLink="/home" routerLinkActive="active" (click)="cambiaPagina('home')">Home</a></li>-->
+<!--    <li class="flex-item"><a class="menu-item" routerLink="/chi-sono" routerLinkActive="active" (click)="cambiaPagina('chi-sono')">Chi sono</a></li>-->
+<!--    <li class="flex-item"><a class="menu-item" routerLink="/progetti" routerLinkActive="active">Progetti</a></li>-->
+<!--    <li class="flex-item"><a class="menu-item" routerLink="/contattami" routerLinkActive="active">Contattami</a></li>-->
+<!--  </ul>-->
 </div>
