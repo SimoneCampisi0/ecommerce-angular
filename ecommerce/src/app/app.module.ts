@@ -11,6 +11,7 @@ import { ProductViewComponent } from "./product-page/product-view/product-view.c
 import { ProductComponent } from "./product-page/product-view/product/product.component";
 import { LoginPageComponent } from './login-module/login-page/login-page.component';
 import {LoginModule} from "./login-module/login.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import {LoginModule} from "./login-module/login.module";
     ProductPageComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     LoginModule

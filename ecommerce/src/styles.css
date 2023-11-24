@@ -1,3 +1,7 @@
 :root {
-  --primary-color: cadetblue;
+  --primary-color: #5F9EA0;
+}
+
+body {
+  margin: 0;
 }
