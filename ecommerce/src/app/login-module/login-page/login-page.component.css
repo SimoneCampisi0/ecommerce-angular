@@ -44,8 +44,11 @@
 
 .titoli {
   margin-top: 1.5em;
+  margin-left: 1em;
   display: flex;
   flex-direction: column;
+
+  gap: 0.5em;
 }
 
 
@@ -82,9 +85,9 @@ input:focus {
 .email {
   display: flex;
   flex-direction: column;
-  gap: 0.3em;
+  gap: 0.5em;
 
-  border: 1px #c7c7c7 solid;
+  /*border: 1px #c7c7c7 solid;*/
   padding: 1em 1em 1em 1em;
   border-radius: 1em;
 }
@@ -93,9 +96,9 @@ input:focus {
   margin-top: 2em;
   display: flex;
   flex-direction: column;
-  gap: 0.3em;
+  gap: 0.5em;
 
-  border: 1px #c7c7c7 solid;
+  /*border: 1px #c7c7c7 solid;*/
   padding: 1em 1em 1em 1em;
   border-radius: 1em;
 }
@@ -107,13 +110,16 @@ input:focus {
   cursor: pointer;
   transition-duration: 0.2s;
   padding: 0.5em;
-  border-radius: 15px;
+  border-radius: 10px;
 
 
   border: 2px solid var(--primary-color);
-
   background-color: var(--primary-color);
   color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .loginButton:hover {
