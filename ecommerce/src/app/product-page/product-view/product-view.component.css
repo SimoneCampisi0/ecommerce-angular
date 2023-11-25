@@ -1,8 +1,11 @@
 .productList {
-  margin-top: 4em;
+  margin: 1em 0 1em 0;
 
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
 
   gap: 1.5em;
 }

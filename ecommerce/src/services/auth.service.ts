@@ -13,12 +13,13 @@ export class AuthService {
 
   }
 
-  isAuthenticated() {
-    if(localStorage.getItem('currentUser')) {
-      console.log(localStorage.getItem('currentUser'))
-      this.router.navigate(['home'])
-    } else {
-      this.router.navigate(['login'])
-    }
+  isAuthenticated() { //TODO: implementare controllo che viene richiamato al momento dell'acquisto di un prodotto.
+    // Se l'utente non risulta loggato, dev'essere riportato alla pagina di login.
+    // if(localStorage.getItem('currentUser')) {
+    //   console.log(localStorage.getItem('currentUser'))
+    //   this.router.navigate(['home'])
+    // } else {
+    //   this.router.navigate(['login'])
+    // }
   }
 }

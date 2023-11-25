@@ -1,0 +1,38 @@
+* {
+  font-family: Verdana;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.hero-all {
+  margin-top: 3em;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/hero-example-0.jpg");
+  width: 100vw;
+  height: 60vh;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*position: relative; !* ? *!*/
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5em;
+
+  color: white;
+}

@@ -8,7 +8,7 @@ import {LoginPageComponent} from "./login-module/login-page/login-page.component
 import {AuthService} from "../services/auth.service";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomeComponent },
   { path: 'products-page', component: ProductPageComponent, children: [
