@@ -1,0 +1,29 @@
+<div class="all">
+
+  <div class="macroForm">
+    <div class="logo-container">
+      <img class="logo" src="../../assets/logo/logo_black.png">
+    </div>
+
+    <div class="form" [formGroup]="registerForm">
+      <div class="titoli">
+        <div class="titolo">Registrati</div>
+        <div class="sottoTitolo">Esegui la registrazione del tuo profilo..</div>
+      </div>
+
+      <div class="credenziali">
+        <div class="email">
+          <label for="email">Indirizzo email: </label>
+          <input type="text" id="email" name="email" formControlName="email">
+        </div>
+
+        <div class="password">
+          <label for="password">Password: </label>
+          <input type="password" id="password" name="password" formControlName="password">
+        </div>
+      </div>
+
+      <button class="loginButton" type="submit" (click)="onRegister()">Registrati</button>
+    </div>
+  </div>
+</div>

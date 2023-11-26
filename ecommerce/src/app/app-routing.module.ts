@@ -6,9 +6,11 @@ import {ProductViewComponent} from "./product-page/product-view/product-view.com
 import {ProductComponent} from "./product-page/product-view/product/product.component";
 import {LoginPageComponent} from "./login-module/login-page/login-page.component";
 import {AuthService} from "../services/auth.service";
+import {RegisterPageComponent} from "./register-module/register-page/register-page.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomeComponent },
   { path: 'products-page', component: ProductPageComponent, children: [

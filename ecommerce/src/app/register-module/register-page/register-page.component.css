@@ -1,0 +1,128 @@
+.all {
+  background-image: linear-gradient(to left top, #5f9ea0, #497879, #355354, #213232, #0c1313);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  font-family: "Verdana";
+}
+
+.macroForm {
+  background-color: white;
+  padding: 2em;
+  border-radius: 2em;
+  width: 50%;
+  align-self: center;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 20vw;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  border: 1px #c7c7c7 solid;
+
+  border-radius: 1em;
+  padding: 0 5em 0 5em;
+}
+
+
+.titoli {
+  margin-top: 1.5em;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5em;
+}
+
+
+.titolo {
+  font-weight: 600;
+  font-size: 2em;
+}
+
+
+
+.credenziali {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  width: 100%;
+
+}
+
+input {
+  height: 3em;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid black;
+
+  border-radius: 3px;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 3px solid var(--primary-color);
+  transition-duration: 0.2s;
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  /*border: 1px #c7c7c7 solid;*/
+  padding: 1em 1em 1em 1em;
+  border-radius: 1em;
+}
+
+.password {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+
+  /*border: 1px #c7c7c7 solid;*/
+  padding: 1em 1em 1em 1em;
+  border-radius: 1em;
+}
+
+.loginButton {
+  margin: 3em 0 1.5em 0;
+  width: 100%;
+
+  cursor: pointer;
+  transition-duration: 0.2s;
+  padding: 0.5em;
+  border-radius: 10px;
+
+
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginButton:hover {
+  background-color: white;
+  color: black;
+}

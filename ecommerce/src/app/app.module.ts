@@ -12,6 +12,8 @@ import { ProductComponent } from "./product-page/product-view/product/product.co
 import { LoginPageComponent } from './login-module/login-page/login-page.component';
 import {LoginModule} from "./login-module/login.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegisterPageComponent } from './register-module/register-page/register-page.component';
+import {RegisterModule} from "./register-module/register.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    RegisterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
