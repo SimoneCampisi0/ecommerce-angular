@@ -20,4 +20,8 @@ export class AuthService {
   login (request: CreateUserRequest): Observable<UserResponse> {
     return this.http.post<any>('http://localhost:8080/users/auth/login', request)
   }
+
+  getUsernameByUserId(idUser: number): Observable<String> {
+    return this.http.get<any>('http://localhost:8080/users/auth/getUsernameByUserId?='+idUser)
+  }
 }
