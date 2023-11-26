@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
-import {RegisterDTO} from "../../../dtos/RegisterDTO";
+import {CreateUserRequest} from "../../../dtos/CreateUserRequest";
+import {Router} from "@angular/router";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-register-page',
@@ -14,14 +16,21 @@ export class RegisterPageComponent {
     password: new FormControl(),
   })
 
-  constructor(private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
+
   onRegister() {
-    console.log(this.registerForm.value)
-    let request = new RegisterDTO(this.registerForm.value.email, this.registerForm.value.password)
+    let request = new CreateUserRequest(this.registerForm.value.email, this.registerForm.value.password)
 
     this.authService.register(request).subscribe(
       response => {
-        console.log("response: "+response)
+        localStorage.setItem('currentUser', JSON.stringify(response))
+
+      },
+      (error) => {
+        console.log("error: "+error.toString())
+      },
+      ()=> {
+        this.router.navigate(['home'])
       }
     )
   }

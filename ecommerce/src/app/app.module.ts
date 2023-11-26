@@ -14,6 +14,7 @@ import {LoginModule} from "./login-module/login.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RegisterPageComponent } from './register-module/register-page/register-page.component';
 import {RegisterModule} from "./register-module/register.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {RegisterModule} from "./register-module/register.module";
     ProductPageComponent
   ],
   imports: [
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
