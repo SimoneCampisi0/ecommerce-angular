@@ -11,17 +11,65 @@
         <div class="sottoTitolo">Esegui la registrazione del tuo profilo.</div>
       </div>
 
-      <div class="credenziali">
-        <div class="email">
-          <label for="email">Indirizzo email: </label>
-          <input type="text" id="email" name="email" formControlName="email">
+        <div class="anagrafica" *ngIf="fase === 0; else faseUno">
+            <div class="inputType">
+              <label for="nome">Nome: </label>
+              <input type="text" id="nome" name="nome" formControlName="nome">
+            </div>
+
+            <div class="inputType">
+              <label for="dataNascita">Data di nascita: </label>
+              <input type="date" id="dataNascita" name="dataNascita" formControlName="dataNascita">
+            </div>
+
+            <div class="inputType">
+              <label for="nome">Stato: </label>
+              <input type="text" id="stato" name="stato" formControlName="stato">
+            </div>
+
+            <div class="inputType">
+              <label for="indirizzo">Indirizzo: </label>
+              <input type="text" id="indirizzo" name="indirizzo" formControlName="indirizzo">
+            </div>
+
+            <div class="inputType">
+              <label for="cognome">Cognome: </label>
+              <input type="text" id="cognome" name="cognome" formControlName="cognome">
+            </div>
+
+            <div class="inputType">
+              <label for="nome">Comune di residenza: </label>
+              <input type="text" id="comune" name="comune" formControlName="comune">
+            </div>
+
+            <div class="inputType">
+              <label for="cap">CAP: </label>
+              <input type="text" id="cap" name="cap" formControlName="cap">
+            </div>
+
+            <div class="inputType">
+              <label for="civico">Civico: </label>
+              <input type="text" id="civico" name="civico" formControlName="civico">
+            </div>
+
         </div>
 
-        <div class="password">
-          <label for="password">Password: </label>
-          <input type="password" id="password" name="password" formControlName="password">
-        </div>
-      </div>
+
+      <ng-template #faseUno>
+              <div class="credenziali">
+                <div class="email">
+                  <label for="email">Indirizzo email: </label>
+                  <input type="text" id="email" name="email" formControlName="email">
+                </div>
+
+                <div class="password">
+                  <label for="password">Password: </label>
+                  <input type="password" id="password" name="password" formControlName="password">
+                </div>
+              </div>
+      </ng-template>
+
+
 
       <button class="loginButton" type="submit" (click)="onRegister()">Registrati</button>
     </div>

@@ -14,10 +14,12 @@
 
 .macroForm {
   background-color: white;
-  padding: 2em;
   border-radius: 2em;
-  width: 50%;
+  width: 40%;
+  height: 82%;
   align-self: center;
+  padding-bottom: 1em;
+  z-index: 1;
 }
 
 .logo-container {
@@ -35,9 +37,9 @@
   justify-content: center;
   flex-direction: column;
 
-  border: 1px #c7c7c7 solid;
+  border-top: 1px #c7c7c7 solid;
 
-  border-radius: 1em;
+  border-radius: 0.5em;
   padding: 0 5em 0 5em;
 }
 
@@ -54,10 +56,14 @@
 
 .titolo {
   font-weight: 600;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
+.anagrafica {
+  width: 100%;
 
+  margin-top: 2em;
+}
 
 .credenziali {
   display: flex;
@@ -65,15 +71,16 @@
   margin-top: 2em;
   width: 100%;
 
+  align-items: center;
+  justify-content: space-between;
 }
 
 input {
-  height: 3em;
+  height: 1.2em;
+  padding: 0.5em;
   box-sizing: border-box;
   border: none;
   border-bottom: 3px solid black;
-
-  border-radius: 3px;
 }
 
 input:focus {
@@ -93,7 +100,7 @@ input:focus {
 }
 
 .password {
-  margin-top: 2em;
+  margin-top: 1em;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -104,7 +111,7 @@ input:focus {
 }
 
 .loginButton {
-  margin: 3em 0 1.5em 0;
+  margin: 0 0 1.5em 0;
   width: 100%;
 
   cursor: pointer;
@@ -125,4 +132,16 @@ input:focus {
 .loginButton:hover {
   background-color: white;
   color: black;
+}
+
+label {
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+
+.inputType {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 1em;
 }

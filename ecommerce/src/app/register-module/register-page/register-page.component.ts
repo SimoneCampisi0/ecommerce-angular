@@ -11,12 +11,14 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
   styleUrl: './register-page.component.css'
 })
 export class RegisterPageComponent {
+  fase: number = 0
+
   registerForm = new FormGroup({ //TODO aggiungere i seguenti campi alla Register Page e verificare se funziona la visualizzazione del nome nella navbar
     nome: new FormControl(),
     cognome: new FormControl(),
     dataNascita: new FormControl(),
     comune: new FormControl(),
-    paese: new FormControl(),
+    stato: new FormControl(),
     cap: new FormControl(),
     indirizzo: new FormControl(),
     civico: new FormControl(),
