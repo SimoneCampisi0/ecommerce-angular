@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CreateUserRequest} from "../dtos/CreateUserRequest";
 import {UserResponse} from "../dtos/UserResponse";
+import {LoginUserRequest} from "../dtos/LoginUserRequest";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class AuthService {
     return this.http.post<any>('http://localhost:8080/users/auth/register', request)
   }
 
-  login (request: CreateUserRequest): Observable<UserResponse> {
+  login (request: LoginUserRequest): Observable<UserResponse> {
     return this.http.post<any>('http://localhost:8080/users/auth/login', request)
   }
 

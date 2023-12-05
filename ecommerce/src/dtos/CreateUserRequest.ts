@@ -1,7 +1,12 @@
-import {AbstractUserDTO} from "./AbstractUser/AbstractUserDTO";
+import {AbstractUserDTO} from "./abstract/AbstractUserDTO";
+import {CreateAnagraficaRequest} from "./CreateAnagraficaRequest";
 
 export class CreateUserRequest extends AbstractUserDTO {
-  constructor(email: string, password: string) {
+
+  anagraficaRequest: CreateAnagraficaRequest
+
+  constructor(email: string, password: string, anagraficaRequest: CreateAnagraficaRequest) {
     super(email, password);
+    this.anagraficaRequest = anagraficaRequest
   }
 }

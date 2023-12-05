@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
-import {CreateUserRequest} from "../../../dtos/CreateUserRequest";
 import {Router} from "@angular/router";
+import {LoginUserRequest} from "../../../dtos/LoginUserRequest";
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +18,7 @@ export class LoginPageComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   onLogin() {
-    let request = new CreateUserRequest(this.loginForm.value.email, this.loginForm.value.password)
+    let request = new LoginUserRequest(this.loginForm.value.email, this.loginForm.value.password)
 
     this.authService.login(request).subscribe(
       response => {
