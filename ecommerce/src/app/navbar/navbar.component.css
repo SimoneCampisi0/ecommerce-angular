@@ -21,13 +21,6 @@
   cursor: pointer;
 }
 
-/*.flex-menu {*/
-/*  list-style-type: none;*/
-/*  display: flex;*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*}*/
-
 .subCategory {
   display: flex;
   flex-direction: row;

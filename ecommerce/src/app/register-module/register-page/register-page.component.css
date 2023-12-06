@@ -1,19 +1,20 @@
 .all {
   background-image: linear-gradient(to left top, #5f9ea0, #497879, #355354, #213232, #0c1313);
   background-size: cover;
-  width: 100vw;
+  background-repeat: no-repeat;
   height: 100vh;
   z-index: 0;
 
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .macroForm {
   background-color: white;
   border-radius: 2em;
-  width: 40%;
+  width: auto;
   height: auto;
   align-self: center;
   padding-bottom: 1em;
@@ -58,8 +59,12 @@
 
 .anagrafica {
   width: 100%;
-
   margin-top: 2em;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .credenziali {
@@ -134,10 +139,17 @@ input {
 select {
   font-size: 1em;
   padding: 0.5em;
+
   box-sizing: border-box;
   border: none;
   border-bottom: 3px solid black;
 }
+
+option {
+  font-size: 1em;
+  padding: 0.5em;
+}
+
 
 input:focus {
   outline: none;
@@ -145,18 +157,42 @@ input:focus {
   transition-duration: 0.2s;
 }
 
-.underInputType {
+.luogoResidenza {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.statoComune {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 1.5em;
+}
+
+.indirizzoCivicoCAP {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5em;
 }
 
 .inputType {
   display: flex;
   flex-direction: column;
-
   margin-bottom: 1em;
+}
+
+#civico {
+  width: 3em;
+  text-align: center;
+}
+
+#CAP {
+  width: 7em;
+  text-align: center;
 }
 
 .error-message {
@@ -166,7 +202,7 @@ input:focus {
 }
 
 @media screen and (max-width: 1400px) {
-  .underInputType {
+  .luogoResidenza {
     display: block;
   }
 }

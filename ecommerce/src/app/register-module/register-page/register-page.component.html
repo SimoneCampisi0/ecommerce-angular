@@ -27,36 +27,37 @@
               Cognome obbligatorio
             </div>
           </div>
-
-            <div class="inputType">
-              <label for="dataNascita">Data di nascita: </label>
-              <input type="date" id="dataNascita" name="dataNascita" formControlName="dataNascita">
-              <div *ngIf="registerForm0.get('dataNascita')?.hasError('required') && registerForm0.get('dataNascita')?.touched" class="error-message">
-                Data di nascita obbligatoria
-              </div>
-            </div>
-
-          <div class="inputType">
-            <label for="stato">Stato: </label>
-
-            <select name="stato" id="stato" formControlName="stato">
-              <option *ngFor="let value of Object.values(Stato)" [value]="value">
-                {{ value }}
-              </option>
-            </select>
-
-            <div *ngIf="registerForm0.get('stato')?.hasError('required') && registerForm0.get('stato')?.touched" class="error-message">
-              Stato obbligatorio
-            </div>
-          </div>
         </div>
 
-            <div class="underInputType">
+            <div class="luogoResidenza">
               <div class="inputType">
-                <label for="comune">Comune di residenza: </label>
-                <input type="text" id="comune" name="comune" formControlName="comune">
-                <div *ngIf="registerForm0.get('comune')?.hasError('required') && registerForm0.get('comune')?.touched" class="error-message">
-                  Comune di residenza obbligatorio
+                <label for="dataNascita">Data di nascita: </label>
+                <input type="date" id="dataNascita" name="dataNascita" formControlName="dataNascita">
+                <div *ngIf="registerForm0.get('dataNascita')?.hasError('required') && registerForm0.get('dataNascita')?.touched" class="error-message">
+                  Data di nascita obbligatoria
+                </div>
+              </div>
+
+              <div class="statoComune">
+                <div class="inputType">
+                  <label for="stato">Stato: </label>
+                  <select name="stato" id="stato" formControlName="stato">
+                    <option *ngFor="let value of Object.values(Stato)" [value]="value">
+                      {{ value }}
+                    </option>
+                  </select>
+
+                  <div *ngIf="registerForm0.get('stato')?.hasError('required') && registerForm0.get('stato')?.touched" class="error-message">
+                    Stato obbligatorio
+                  </div>
+                </div>
+
+                <div class="inputType">
+                  <label for="comune">Comune di residenza: </label>
+                  <input type="text" id="comune" name="comune" formControlName="comune">
+                  <div *ngIf="registerForm0.get('comune')?.hasError('required') && registerForm0.get('comune')?.touched" class="error-message">
+                    Comune di residenza obbligatorio
+                  </div>
                 </div>
               </div>
 
@@ -73,36 +74,36 @@
                   Provincia obbligatoria
                 </div>
               </div>
-            </div>
 
-            <div class="inputType">
-              <label for="indirizzo">Indirizzo: </label>
-              <input type="text" id="indirizzo" name="indirizzo" formControlName="indirizzo">
-              <div *ngIf="registerForm0.get('indirizzo')?.hasError('required') && registerForm0.get('indirizzo')?.touched" class="error-message">
-                Indirizzo obbligatorio
+              <div class="indirizzoCivicoCAP">
+                <div class="inputType">
+                  <label for="indirizzo">Indirizzo: </label>
+                  <input type="text" id="indirizzo" name="indirizzo" formControlName="indirizzo">
+                  <div *ngIf="registerForm0.get('indirizzo')?.hasError('required') && registerForm0.get('indirizzo')?.touched" class="error-message">
+                    Indirizzo obbligatorio
+                  </div>
+                </div>
+
+
+                <div class="inputType">
+                  <label for="civico">Civico: </label>
+                  <input type="text" id="civico" name="civico" formControlName="civico">
+                  <div *ngIf="registerForm0.get('civico')?.hasError('required') && registerForm0.get('civico')?.touched" class="error-message">
+                    civico obbligatorio
+                  </div>
+                </div>
+
+                <div class="inputType">
+                  <label for="CAP">CAP: </label>
+                  <input type="text" id="CAP" name="CAP" formControlName="CAP">
+                  <div *ngIf="registerForm0.get('CAP')?.hasError('required') && registerForm0.get('CAP')?.touched" class="error-message">
+                    Indirizzo obbligatorio
+                  </div>
+                </div>
               </div>
-            </div>
+              </div>
 
-
-          <div class="inputType">
-            <label for="civico">Civico: </label>
-            <input type="text" id="civico" name="civico" formControlName="civico">
-            <div *ngIf="registerForm0.get('civico')?.hasError('required') && registerForm0.get('civico')?.touched" class="error-message">
-              civico obbligatorio
-            </div>
-          </div>
-
-          <div class="inputType">
-            <label for="CAP">CAP: </label>
-            <input type="text" id="CAP" name="CAP" formControlName="CAP">
-            <div *ngIf="registerForm0.get('CAP')?.hasError('required') && registerForm0.get('CAP')?.touched" class="error-message">
-              Indirizzo obbligatorio
-            </div>
-          </div>
-        </div>
-
-
-      <ng-template #faseUno>
+            <ng-template #faseUno>
               <div class="credenziali">
                 <div class="email">
                   <label for="email">Indirizzo email: </label>
@@ -114,11 +115,15 @@
                   <input type="password" id="password" name="password" formControlName="password">
                 </div>
               </div>
-      </ng-template>
+            </ng-template>
 
 
-<!--      FIX CSS DEL PULSANTE DI REGISTRAZIONE-->
-      <button class="registerButton" type="submit" (click)="checkRegister()">Registrati</button>
+            <!--      FIX CSS DEL PULSANTE DI REGISTRAZIONE-->
+            <button class="registerButton" type="submit" (click)="checkRegister()">Registrati</button>
+        </div>
+
+
+
     </div>
   </div>
 
