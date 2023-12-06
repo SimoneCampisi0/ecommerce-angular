@@ -13,7 +13,7 @@
 
 .macroForm {
   background-color: white;
-  border-radius: 2em;
+  border-radius: 1em;
   width: auto;
   height: auto;
   align-self: center;
@@ -38,7 +38,6 @@
 
   border-top: 1px #c7c7c7 solid;
 
-  border-radius: 0.5em;
   padding: 0 5em 0 5em;
 }
 
@@ -198,7 +197,7 @@ input:focus {
 .error-message {
   color: red;
   font-size: 0.8em;
-  margin-top: 0.2em;
+  padding-top: 0.4em;
 }
 
 @media screen and (max-width: 1400px) {
