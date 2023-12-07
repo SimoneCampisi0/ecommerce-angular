@@ -5,7 +5,7 @@
       <img class="logo" src="../../assets/logo/logo_black.png">
     </div>
 
-    <div class="form" [formGroup]="registerForm0">
+    <div class="form" [formGroup]="registerForm">
       <div class="titoli">
         <div class="titolo">Registrati</div>
         <div class="sottoTitolo">Esegui la registrazione del tuo profilo.</div>
@@ -15,7 +15,7 @@
             <div class="inputType">
               <label for="nome">Nome: </label>
               <input type="text" id="nome" name="nome" formControlName="nome">
-              <div *ngIf="registerForm0.get('nome')?.hasError('required') && registerForm0.get('nome')?.touched" class="error-message">
+              <div *ngIf="registerForm.get('nome')?.hasError('required') && registerForm.get('nome')?.touched" class="error-message">
                 Nome obbligatorio
               </div>
             </div>
@@ -23,17 +23,17 @@
           <div class="inputType">
             <label for="cognome">Cognome: </label>
             <input type="text" id="cognome" name="cognome" formControlName="cognome">
-            <div *ngIf="registerForm0.get('cognome')?.hasError('required') && registerForm0.get('cognome')?.touched" class="error-message">
+            <div *ngIf="registerForm.get('cognome')?.hasError('required') && registerForm.get('cognome')?.touched" class="error-message">
               Cognome obbligatorio
             </div>
           </div>
         </div>
 
-            <div class="luogoResidenza">
+            <div class="luogoResidenza" *ngIf="fase === 0">
               <div class="inputType">
                 <label for="dataNascita">Data di nascita: </label>
                 <input type="date" id="dataNascita" name="dataNascita" formControlName="dataNascita">
-                <div *ngIf="registerForm0.get('dataNascita')?.hasError('required') && registerForm0.get('dataNascita')?.touched" class="error-message">
+                <div *ngIf="registerForm.get('dataNascita')?.hasError('required') && registerForm.get('dataNascita')?.touched" class="error-message">
                   Data di nascita obbligatoria
                 </div>
               </div>
@@ -41,13 +41,8 @@
               <div class="statoComune">
                 <div class="inputType">
                   <label for="stato">Stato: </label>
-                  <select name="stato" id="stato" formControlName="stato">
-                    <option *ngFor="let value of Object.values(Stato)" [value]="value">
-                      {{ value }}
-                    </option>
-                  </select>
-
-                  <div *ngIf="registerForm0.get('stato')?.hasError('required') && registerForm0.get('stato')?.touched" class="error-message">
+                  <input type="text" id="stato" name="stato" formControlName="stato">
+                  <div *ngIf="registerForm.get('stato')?.hasError('required') && registerForm.get('stato')?.touched" class="error-message">
                     Stato obbligatorio
                   </div>
                 </div>
@@ -55,7 +50,7 @@
                 <div class="inputType">
                   <label for="comune">Comune di residenza: </label>
                   <input type="text" id="comune" name="comune" formControlName="comune">
-                  <div *ngIf="registerForm0.get('comune')?.hasError('required') && registerForm0.get('comune')?.touched" class="error-message">
+                  <div *ngIf="registerForm.get('comune')?.hasError('required') && registerForm.get('comune')?.touched" class="error-message">
                     Comune di residenza obbligatorio
                   </div>
                 </div>
@@ -63,14 +58,9 @@
 
               <div class="inputType">
                 <label for="provincia">Provincia: </label>
+                <input type="text" id="provincia" name="provincia" formControlName="provincia">
 
-                <select name="provincia" id="provincia" formControlName="provincia">
-                  <option *ngFor="let value of Object1.values(Provincia)" [value]="value">
-                    {{ value }}
-                  </option>
-                </select>
-
-                <div *ngIf="registerForm0.get('provincia')?.hasError('required') && registerForm0.get('provincia')?.touched" class="error-message">
+                <div *ngIf="registerForm.get('provincia')?.hasError('required') && registerForm.get('provincia')?.touched" class="error-message">
                   Provincia obbligatoria
                 </div>
               </div>
@@ -79,7 +69,7 @@
                 <div class="inputType">
                   <label for="indirizzo">Indirizzo: </label>
                   <input type="text" id="indirizzo" name="indirizzo" formControlName="indirizzo">
-                  <div *ngIf="registerForm0.get('indirizzo')?.hasError('required') && registerForm0.get('indirizzo')?.touched" class="error-message">
+                  <div *ngIf="registerForm.get('indirizzo')?.hasError('required') && registerForm.get('indirizzo')?.touched" class="error-message">
                     Indirizzo obbligatorio
                   </div>
                 </div>
@@ -88,7 +78,7 @@
                 <div class="inputType">
                   <label for="civico">Civico: </label>
                   <input type="text" id="civico" name="civico" formControlName="civico">
-                  <div *ngIf="registerForm0.get('civico')?.hasError('required') && registerForm0.get('civico')?.touched" class="error-message">
+                  <div *ngIf="registerForm.get('civico')?.hasError('required') && registerForm.get('civico')?.touched" class="error-message">
                     Civico obbligatorio
                   </div>
                 </div>
@@ -96,7 +86,7 @@
                 <div class="inputType">
                   <label for="CAP">CAP: </label>
                   <input type="text" id="CAP" name="CAP" formControlName="CAP">
-                  <div *ngIf="registerForm0.get('CAP')?.hasError('required') && registerForm0.get('CAP')?.touched" class="error-message">
+                  <div *ngIf="registerForm.get('CAP')?.hasError('required') && registerForm.get('CAP')?.touched" class="error-message">
                     CAP obbligatorio
                   </div>
                 </div>
@@ -108,18 +98,26 @@
                 <div class="email">
                   <label for="email">Indirizzo email: </label>
                   <input type="text" id="email" name="email" formControlName="email">
+                  <div *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched" class="error-message">
+                    Email obbligatoria
+                  </div>
                 </div>
 
                 <div class="password">
                   <label for="password">Password: </label>
                   <input type="password" id="password" name="password" formControlName="password">
+                  <div *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched" class="error-message">
+                    Password obbligatoria
+                  </div>
                 </div>
               </div>
             </ng-template>
 
+            <button class="registerButton" type="submit" (click)="checkRegister()" *ngIf="fase === 0; else registerFaseUno">Registrati</button>
 
-            <!--      FIX CSS DEL PULSANTE DI REGISTRAZIONE-->
-            <button class="registerButton" type="submit" (click)="checkRegister()">Registrati</button>
+            <ng-template #registerFaseUno>
+              <button class="registerButton" type="submit" (click)="onRegister()">Registrati</button>
+            </ng-template>
         </div>
 
 

@@ -1,10 +1,8 @@
-import {Stato} from "../enums/Stato";
-import {Provincia} from "../enums/Provincia";
 
 export class AbstractLuogoResidenzaRequest {
-  stato: Stato
+  stato: string
 
-  provincia: Provincia
+  provincia: string
 
   comune: string
 
@@ -14,8 +12,8 @@ export class AbstractLuogoResidenzaRequest {
 
   CAP: string
 
-  constructor(stato: Stato,
-              provincia: Provincia,
+  constructor(stato: string,
+              provincia: string,
               comune: string,
               indirizzo: string,
               civico: string,

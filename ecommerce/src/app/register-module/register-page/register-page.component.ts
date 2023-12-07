@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
 import {CreateUserRequest} from "../../../dtos/CreateUserRequest";
 import {Router} from "@angular/router";
-import Swal from 'sweetalert2'
 import {CreateLuogoResidenzaRequest} from "../../../dtos/CreateLuogoResidenzaRequest";
-import {Provincia} from "../../../dtos/enums/Provincia";
-import {Stato} from "../../../dtos/enums/Stato";
 import {CreateAnagraficaRequest} from "../../../dtos/CreateAnagraficaRequest";
 
 @Component({
@@ -17,7 +14,10 @@ import {CreateAnagraficaRequest} from "../../../dtos/CreateAnagraficaRequest";
 export class RegisterPageComponent {
   fase: number = 0
 
-  registerForm0 = new FormGroup({
+  //@ts-ignore
+  anagraficaRequest: CreateAnagraficaRequest
+
+  registerForm = new FormGroup({
     nome: new FormControl('', Validators.required),
     cognome: new FormControl('', Validators.required),
     dataNascita: new FormControl('', Validators.required),
@@ -27,23 +27,12 @@ export class RegisterPageComponent {
     indirizzo: new FormControl('', Validators.required),
     civico: new FormControl('', Validators.required),
     CAP: new FormControl('', Validators.required),
-
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required)
   });
 
-  registerForm1: FormGroup = new FormGroup({
-    email: new FormControl(),
-    password: new FormControl(),
-  });
 
   constructor(private router: Router, private authService: AuthService) {}
-
-  convertiStatoEnum(valore: string): Stato {
-    return Stato[valore as keyof typeof Stato]
-  }
-
-  convertiProvinciaoEnum(valore: string): Provincia {
-    return Provincia[valore as keyof typeof Provincia]
-  }
 
 
   checkRegister() {
@@ -58,49 +47,42 @@ export class RegisterPageComponent {
     //   this.fase = 1
     // }
 
-    console.log(this.registerForm0.value)
-
     let luogoResidenzaRequest = new CreateLuogoResidenzaRequest(
-      this.convertiStatoEnum(this.registerForm0.value.stato || ""),
-      this.convertiProvinciaoEnum(this.registerForm0.value.provincia || ""),
-      this.registerForm0.value.comune || "",
-      this.registerForm0.value.indirizzo || "",
-      this.registerForm0.value.civico || "",
-      this.registerForm0.value.CAP || "",
+      this.registerForm.value.stato || "",
+      this.registerForm.value.provincia || "",
+      this.registerForm.value.comune || "",
+      this.registerForm.value.indirizzo || "",
+      this.registerForm.value.civico || "",
+      this.registerForm.value.CAP || "",
     )
 
+
     let anagraficaRequest: CreateAnagraficaRequest = new CreateAnagraficaRequest(
-      this.registerForm0.value.nome || "",
-      this.registerForm0.value.cognome || "",
-            new Date(this.registerForm0.value.dataNascita || ""),
+      this.registerForm.value.nome || "",
+      this.registerForm.value.cognome || "",
+            new Date(this.registerForm.value.dataNascita || ""),
             luogoResidenzaRequest)
 
     this.fase = 1
-
-
-
-    this.onRegister(anagraficaRequest)
+    this.anagraficaRequest = anagraficaRequest
   }
 
-  onRegister(anagraficaRequest: CreateAnagraficaRequest) {
-    let request = new CreateUserRequest(this.registerForm1.value.email, this.registerForm1.value.password, anagraficaRequest)
+  onRegister() {
+    let request = new CreateUserRequest(this.registerForm.value.email || "", this.registerForm.value.password || "", this.anagraficaRequest)
 
-    this.authService.register(request).subscribe(
-      response => {
+    console.log(request)
+
+    this.authService.register(request).subscribe({
+      next: (response) => {
         localStorage.setItem('currentUser', JSON.stringify(response))
-
       },
-      (error) => {
+      error: (error) => {
         console.log("error: "+error.toString())
       },
-      ()=> {
+      complete: () => {
         this.router.navigate(['home'])
       }
-    )
+    })
   }
 
-  protected readonly Object = Object;
-  protected readonly Provincia = Provincia;
-  protected readonly Object1 = Object;
-  protected readonly Stato = Stato;
 }
