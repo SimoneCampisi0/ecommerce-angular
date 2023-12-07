@@ -10,20 +10,20 @@ export class AbstractLuogoResidenzaRequest {
 
   civico: string
 
-  CAP: string
+  cap: string
 
   constructor(stato: string,
               provincia: string,
               comune: string,
               indirizzo: string,
               civico: string,
-              CAP: string) {
+              cap: string) {
     this.stato = stato
     this.provincia = provincia
     this.comune = comune
     this.indirizzo = indirizzo
     this.civico = civico
-    this.CAP = CAP
+    this.cap = cap
   }
 
 }

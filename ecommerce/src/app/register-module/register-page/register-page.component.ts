@@ -26,7 +26,7 @@ export class RegisterPageComponent {
     provincia: new FormControl('', Validators.required),
     indirizzo: new FormControl('', Validators.required),
     civico: new FormControl('', Validators.required),
-    CAP: new FormControl('', Validators.required),
+    cap: new FormControl('', Validators.required), //TODO: c'è un problema dei cap. Uno è minuscolo e uno è maiuscolo
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required)
   });
@@ -53,7 +53,7 @@ export class RegisterPageComponent {
       this.registerForm.value.comune || "",
       this.registerForm.value.indirizzo || "",
       this.registerForm.value.civico || "",
-      this.registerForm.value.CAP || "",
+      this.registerForm.value.cap || "",
     )
 
 
