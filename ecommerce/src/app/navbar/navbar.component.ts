@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
+import {UserResponse} from "../../dtos/UserResponse";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-navbar',
@@ -9,13 +11,24 @@ import {AuthService} from "../../services/auth.service";
 })
 export class NavbarComponent {
   //@ts-ignore
-  username: string
+  username: String
 
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     // @ts-ignore
-    this.authService.getUsernameByUserId(JSON.parse(localStorage.getItem('currentUser')).idUser)
+    if(localStorage.getItem('currentUser')) {
+      let tempUser: UserResponse =  JSON.parse(localStorage.getItem('currentUser') || "")
+
+      this.authService.getUsernameByUserId(tempUser.idUser).subscribe({
+        next: (response) => {
+          this.username = response
+        },
+        error: () => {
+          this.username = ""
+        }
+      })
+    }
   }
 
   goHome() {

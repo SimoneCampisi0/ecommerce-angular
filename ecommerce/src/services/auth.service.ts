@@ -22,7 +22,7 @@ export class AuthService {
     return this.http.post<any>('http://localhost:8080/users/auth/login', request)
   }
 
-  getUsernameByUserId(idUser: number): Observable<String> {
-    return this.http.get<any>('http://localhost:8080/users/auth/getUsernameByUserId?='+idUser)
+  getUsernameByUserId(idUser: number): Observable<String> { //TODO: aggiungere interceptor per allegare a ogni chiamata al back-end la JWT
+    return this.http.get<any>('http://localhost:8080/users/auth/getUsernameByUserId?idUser='+idUser)
   }
 }
