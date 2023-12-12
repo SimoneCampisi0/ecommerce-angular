@@ -68,7 +68,3 @@ button {
   background-color: white;
 }
 
-.dettagli:hover {
-  border: 2.5px solid black;
-  transition-duration: 0.2s;
-}

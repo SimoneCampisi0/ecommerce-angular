@@ -1,14 +1,21 @@
 <div class="all">
     <img class="logo" src="../../assets/logo/logo_black.png" alt="" srcset="" (click)="cambiaPagina('home')">
 
-
-<!--  <ul class="flex-menu">-->
-<!--    <li class="flex-item"><a href="/">Home</a></li>-->
-<!--  </ul>-->
-
   <div class="subCategory">
-<!--    <div class="prodotti" (click)="cambiaPagina('products-page')" routerLink="/products-page" routerLinkActive="active">PRODOTTI</div>-->
-    <div class="user">Ciao, <div class="nomeUtente">{{ username }}</div></div>
+    <div class="drop1" *ngIf="this.username; else notLogged">
+      <span class="user" >Ciao, <div class="nomeUtente">{{ username }}</div></span>
+
+      <div class="content">
+        <div class="profilo">Il mio profilo</div>
+        <div class="logout" (click)="logout()">Logout</div>
+      </div>
+
+    </div>
+
+    <ng-template #notLogged>
+      <div class="user" (click)="cambiaPagina('login')">Accedi</div>
+    </ng-template>
+
     <div class="cart">CART</div>
   </div>
 

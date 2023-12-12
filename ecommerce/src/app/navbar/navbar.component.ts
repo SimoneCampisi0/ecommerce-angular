@@ -38,5 +38,9 @@ export class NavbarComponent {
     this.router.navigate([pagina])
   }
 
+  logout() {
+    localStorage.clear();
+    location.reload()
+  }
 
 }
