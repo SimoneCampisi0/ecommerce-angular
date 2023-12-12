@@ -22,9 +22,9 @@ export class NavbarComponent {
 
       this.authService.getUsernameByUserId(tempUser.idUser).subscribe({
         next: (response) => {
-          this.username = response
+          this.username = response.split(" ", 2)[0]
         },
-        error: () => {
+        error: (err) => {
           this.username = ""
         }
       })

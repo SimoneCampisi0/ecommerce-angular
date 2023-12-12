@@ -12,7 +12,8 @@ import { ProductComponent } from "./product-page/product-view/product/product.co
 import {LoginModule} from "./login-module/login.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RegisterModule} from "./register-module/register.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {JwtInterceptor} from "./jwt.interceptor";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,13 @@ import {HttpClientModule} from "@angular/common/http";
     LoginModule,
     RegisterModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

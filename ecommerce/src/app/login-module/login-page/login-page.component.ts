@@ -20,17 +20,18 @@ export class LoginPageComponent {
   onLogin() {
     let request = new LoginUserRequest(this.loginForm.value.email, this.loginForm.value.password)
 
-    this.authService.login(request).subscribe(
-      response => {
+    this.authService.login(request).subscribe({
+      next: (response) => {
         localStorage.setItem('currentUser', JSON.stringify(response))
+      },
 
+      error: (err) => {
+        console.log("error: ", err)
       },
-      (error) => {
-        console.log("error: "+error.toString())
-      },
-      ()=> {
+
+      complete: () => {
         this.router.navigate(['home'])
       }
-    )
+    })
   }
 }

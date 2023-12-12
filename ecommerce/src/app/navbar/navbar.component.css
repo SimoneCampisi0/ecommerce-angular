@@ -43,7 +43,13 @@
 
 
 .user {
-  margin-right: 1em;
+  margin-right: 2em;
+  text-align: center;
+}
+
+.nomeUtente {
+  display: inline-flex;
+  font-weight: 700;
 }
 
 .cart {
