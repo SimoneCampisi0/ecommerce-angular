@@ -34,4 +34,8 @@ export class LoginPageComponent {
       }
     })
   }
+
+  cambiaPagina(pagina: string) {
+    this.router.navigate([pagina])
+  }
 }
