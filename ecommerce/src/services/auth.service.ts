@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { UserDTO } from "../dtos/UserDTO";
-import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CreateUserRequest} from "../dtos/CreateUserRequest";

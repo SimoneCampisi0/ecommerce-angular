@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {UserResponse} from "../../dtos/UserResponse";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-navbar',
@@ -24,7 +23,7 @@ export class NavbarComponent {
         next: (response) => {
           this.username = response.split(" ", 2)[0]
         },
-        error: (err) => {
+        error: () => {
           this.username = ""
         }
       })
