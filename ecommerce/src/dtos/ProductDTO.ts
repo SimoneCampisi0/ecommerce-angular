@@ -5,6 +5,8 @@ export class ProductDTO {
 
   productDesq: string
 
+  productCost: number
+
   available: boolean
 
   codSeller: number
@@ -15,21 +17,16 @@ export class ProductDTO {
 
   productDesq: string,
 
+  productCost: number,
+
   available: boolean,
 
   codSeller: number) {
     this.idProduct = idProduct
     this.productName = productName
     this.productDesq = productDesq
+    this.productCost = productCost
     this.available = available
     this.codSeller = codSeller
   }
-
-  // private String productName;
-  //
-  // private String productDesq;
-  //
-  // private Boolean available;
-  //
-  // private Long codSeller;
 }
