@@ -36,9 +36,22 @@ export class RegisterPageComponent {
 
   constructor(private router: Router, private authService: AuthService) {}
 
+  checkFormWithoutEmailPassword() {
+    for(let controlName in this.registerForm.controls) {
+      if(this.registerForm.controls.hasOwnProperty(controlName) && controlName !== 'email' && controlName !== 'password') {
+        if(!this.registerForm.get(controlName)?.valid) { //Se esiste almeno un campo non valido, ritorna false
+          return false;
+        }
+      }
+    }
+    return true; //Altrimenti ritorna true
+  }
+
 
   checkRegister() {
-    if(!this.registerForm.valid) {
+    console.log(this.registerForm.value)
+
+    if(!this.checkFormWithoutEmailPassword()) {
       Swal.fire({
         icon: "error",
         title: "Dati non validi",
