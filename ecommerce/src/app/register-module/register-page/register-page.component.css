@@ -155,6 +155,19 @@ input:focus {
   transition-duration: 0.2s;
 }
 
+.dataNascitaSesso {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5em;
+}
+
+#sessoLabel {
+  display: inline;
+  margin: 1em;
+}
+
 .luogoResidenza {
   display: flex;
   flex-direction: column;
@@ -180,6 +193,12 @@ input:focus {
 .inputType {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.inputTypeEnum {
+  display: flex;
+  flex-direction: row;
   margin-bottom: 1em;
 }
 

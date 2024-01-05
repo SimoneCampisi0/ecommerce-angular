@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import {CreateLuogoResidenzaRequest} from "../../../dtos/CreateLuogoResidenzaRequest";
 import {CreateAnagraficaRequest} from "../../../dtos/CreateAnagraficaRequest"
 import Swal from 'sweetalert2'
+import {SessoEnum} from "../../../dtos/enums/sesso.enum";
 
 
 @Component({
@@ -101,4 +102,6 @@ export class RegisterPageComponent {
     })
   }
 
+    protected readonly Object = Object;
+  protected readonly SessoEnum = SessoEnum;
 }

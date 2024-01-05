@@ -36,7 +36,7 @@ export class ProductViewComponent {
     //   }
     // })
 
-    this.productService.listaProdotti().subscribe({
+    this.productService.  listaProdotti().subscribe({
       next:(response) => {
         this.productList = response
       }

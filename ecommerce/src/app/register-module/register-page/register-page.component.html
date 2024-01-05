@@ -8,7 +8,10 @@
     <div class="form" [formGroup]="registerForm">
       <div class="titoli">
         <div class="titolo">Registrati</div>
-        <div class="sottoTitolo">Esegui la registrazione del tuo profilo.</div>
+        <div class="sottoTitolo" *ngIf="fase === 0; else textFaseUno">Inserisci i dati anagrafici del tuo profilo.</div>
+        <ng-template #textFaseUno>
+          <div class="sottoTitolo">Inserisci una email e una password per il tuo profilo.</div>
+        </ng-template>
       </div>
 
         <div class="anagrafica" *ngIf="fase === 0; else faseUno">
@@ -30,13 +33,33 @@
         </div>
 
             <div class="luogoResidenza" *ngIf="fase === 0">
-              <div class="inputType">
-                <label for="dataNascita">Data di nascita: </label>
-                <input type="date" id="dataNascita" name="dataNascita" formControlName="dataNascita">
-                <div *ngIf="registerForm.get('dataNascita')?.hasError('required') && registerForm.get('dataNascita')?.touched" class="error-message">
-                  Data di nascita obbligatoria
+              <div class="dataNascitaSesso">
+
+                <div class="inputType">
+                  <label for="dataNascita">Data di nascita: </label>
+                  <input type="date" id="dataNascita" name="dataNascita" formControlName="dataNascita">
+                  <div *ngIf="registerForm.get('dataNascita')?.hasError('required') && registerForm.get('dataNascita')?.touched" class="error-message">
+                    Data di nascita obbligatoria
+                  </div>
+                </div>
+
+                <!-- TODO: rimuovere numeri dall'enum. Aggiungere enum anche nel BE. -->
+
+                <div class="inputTypeEnum">
+                  <label for="sesso" id="sessoLabel">Sesso:</label>
+                  <select name="sesso" id="sesso" formControlName="sesso">
+                    <option *ngFor="let sessoScelta of Object.values(SessoEnum)">
+                      {{ sessoScelta }}
+                    </option>
+                  </select>
+
+                  <div *ngIf="registerForm.get('sesso')?.hasError('required') && registerForm.get('sesso')?.touched" class="error-message">
+                    Sesso obbligatorio
+                  </div>
                 </div>
               </div>
+
+
 
               <div class="statoComune">
                 <div class="inputType">
