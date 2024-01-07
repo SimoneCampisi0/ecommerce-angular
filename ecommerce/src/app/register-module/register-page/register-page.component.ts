@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 import {CreateLuogoResidenzaRequest} from "../../../dtos/CreateLuogoResidenzaRequest";
 import {CreateAnagraficaRequest} from "../../../dtos/CreateAnagraficaRequest"
 import Swal from 'sweetalert2'
-import {SessoEnum, SessoEnumBuilder} from "../../../dtos/enums/sesso.enum";
+import {SessoEnum} from "../../../dtos/enums/sesso.enum";
 
 
 @Component({
@@ -75,7 +75,9 @@ export class RegisterPageComponent {
         this.registerForm.value.nome || "",
         this.registerForm.value.cognome || "",
         new Date(this.registerForm.value.dataNascita || ""),
-        SessoEnumBuilder(this.registerForm.value.sesso || ""),
+        // SessoEnumBuilder(this.registerForm.value.sesso || ""),
+        this.registerForm.value.sesso || "",
+
         luogoResidenzaRequest)
 
       console.log("Anagrafica Request: ", this.anagraficaRequest)

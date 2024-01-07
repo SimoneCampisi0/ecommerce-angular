@@ -8,7 +8,7 @@ export class CreateAnagraficaRequest extends AbstractAnagraficaRequest {
   constructor(nome: string,
               cognome: string,
               dataNascita: Date,
-              sesso: SessoEnum,
+              sesso: string,
               luogoResidenzaRequest: CreateLuogoResidenzaRequest) {
     super(nome, cognome, dataNascita, sesso);
     this.luogoResidenzaRequest = luogoResidenzaRequest
