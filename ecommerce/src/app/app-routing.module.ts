@@ -5,7 +5,6 @@ import {ProductPageComponent} from "./product-page/product-page.component";
 import {ProductViewComponent} from "./product-page/product-view/product-view.component";
 import {ProductComponent} from "./product-page/product-view/product/product.component";
 import {LoginPageComponent} from "./login-module/login-page/login-page.component";
-import {AuthService} from "../services/auth.service";
 import {RegisterPageComponent} from "./register-module/register-page/register-page.component";
 
 const routes: Routes = [
