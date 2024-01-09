@@ -17,7 +17,6 @@ const routes: Routes = [
           path: 'product', component: ProductComponent
         }]}
     ]}
-  // Altre route se necessario
 ];
 
 @NgModule({
