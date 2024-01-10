@@ -14,8 +14,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     //TODO definire qui la ricezione del productDTO da ProductViewDTO
-
-    const id = Number(this.route.snapshot.params['id'])
+    //   Da implementare nella pagina del prodotto
+    // const id = Number(this.route.snapshot.params['id'])
   }
 
   goProductDetails() { //

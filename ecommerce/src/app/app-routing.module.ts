@@ -13,11 +13,11 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'products-page', component: ProductPageComponent, children: [
-      { path: 'products', component: ProductViewComponent, children: [{
-          path: ':id', component: ProductComponent
-        }]}
-    ]},
+  // { path: 'products-page', component: ProductPageComponent, children: [
+  //     { path: 'products', component: ProductViewComponent, children: [{
+  //         path: 'product', component: ProductComponent
+  //       }]}
+  //   ]}, Non necessario. //TODO implementare pagina dettaglio prodotto da acquistare
   { path: 'not-found', component: ErrorPageComponent },
   { path: '**', redirectTo: '/not-found'} // Rotta che include gli URL non presenti qui. Dev'essere l'ultima.
 ];
