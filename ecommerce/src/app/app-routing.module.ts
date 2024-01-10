@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
-import {ProductPageComponent} from "./product-page/product-page.component";
-import {ProductViewComponent} from "./product-page/product-view/product-view.component";
-import {ProductComponent} from "./product-page/product-view/product/product.component";
 import {LoginPageComponent} from "./login-module/login-page/login-page.component";
 import {RegisterPageComponent} from "./register-module/register-page/register-page.component";
 import {ErrorPageComponent} from "./shared/error-page/error-page.component";
