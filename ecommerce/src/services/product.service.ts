@@ -16,16 +16,19 @@ export class ProductService {
                         pageSize: number,
                         sortBy: string,
                         sortingOrder: SortingOrder,
-                        sortingFilter: string): Observable<ProductDTO[]>{
+                        sortingFilter: string): Observable<any>{
     let url
 
     if(sortingFilter != '') {
       url = 'http://localhost:8080/orders/products?pageNumber='+pageNumber+'&pageSize='+pageSize+'&sortBy='+sortBy+'&sortingOrder='+sortingOrder+'&sortingFilter='+sortingFilter
+      console.log("url: "+url)
     } else {
       url = 'http://localhost:8080/orders/products?pageNumber='+pageNumber+'&pageSize='+pageSize+'&sortBy='+sortBy+'&sortingOrder='+sortingOrder
+      console.log("url: "+url)
+
     }
 
-    return this.http.get<ProductDTO[]>(url)
+    return this.http.get<any>(url)
   }
 
   listaProdotti() {

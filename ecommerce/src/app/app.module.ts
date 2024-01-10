@@ -6,15 +6,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { HeroComponent } from './hero/hero.component';
-import { ProductPageComponent } from './product-page/product-page.component';
-import { ProductViewComponent } from "./product-page/product-view/product-view.component";
-import { ProductComponent } from "./product-page/product-view/product/product.component";
 import {LoginModule} from "./login-module/login.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RegisterModule} from "./register-module/register.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./jwt.interceptor";
 import {ErrorPageComponent} from "./shared/error-page/error-page.component";
+import {ProductComponent} from "./product-view/product/product.component";
+import {ProductViewComponent} from "./product-view/product-view.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import {ErrorPageComponent} from "./shared/error-page/error-page.component";
     ProductViewComponent,
     ProductComponent,
     HeroComponent,
-    ProductPageComponent,
     ErrorPageComponent
   ],
   imports: [
