@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {ProductDTO} from "../../../dtos/ProductDTO";
 
 @Component({
   selector: 'app-product',
