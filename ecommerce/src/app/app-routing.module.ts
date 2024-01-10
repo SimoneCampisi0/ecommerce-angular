@@ -6,6 +6,7 @@ import {ProductViewComponent} from "./product-page/product-view/product-view.com
 import {ProductComponent} from "./product-page/product-view/product/product.component";
 import {LoginPageComponent} from "./login-module/login-page/login-page.component";
 import {RegisterPageComponent} from "./register-module/register-page/register-page.component";
+import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,9 +15,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'products-page', component: ProductPageComponent, children: [
       { path: 'products', component: ProductViewComponent, children: [{
-          path: 'product', component: ProductComponent
+          path: ':id', component: ProductComponent
         }]}
-    ]}
+    ]},
+  { path: 'not-found', component: ErrorPageComponent },
+  { path: '**', redirectTo: '/not-found'} // Rotta che include gli URL non presenti qui. Dev'essere l'ultima.
 ];
 
 @NgModule({

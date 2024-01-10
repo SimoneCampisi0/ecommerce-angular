@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProductDTO} from "../../../../dtos/ProductDTO";
 
 @Component({
@@ -7,13 +7,15 @@ import {ProductDTO} from "../../../../dtos/ProductDTO";
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
   // productDTO: ProductDTO
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     //TODO definire qui la ricezione del productDTO da ProductViewDTO
+
+    const id = Number(this.route.snapshot.params['id'])
   }
 
   goProductDetails() { //

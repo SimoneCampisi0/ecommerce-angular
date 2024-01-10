@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RegisterModule} from "./register-module/register.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./jwt.interceptor";
+import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {JwtInterceptor} from "./jwt.interceptor";
     ProductViewComponent,
     ProductComponent,
     HeroComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     HttpClientModule,
@@ -40,6 +42,9 @@ import {JwtInterceptor} from "./jwt.interceptor";
       useClass: JwtInterceptor,
       multi: true
     }
+  ],
+  exports: [
+    NavbarComponent
   ],
   bootstrap: [AppComponent]
 })
