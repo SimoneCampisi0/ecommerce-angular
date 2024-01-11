@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {UserResponse} from "../../dtos/UserResponse";
@@ -8,7 +8,7 @@ import {UserResponse} from "../../dtos/UserResponse";
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   //@ts-ignore
   username: String
 

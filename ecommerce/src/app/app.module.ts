@@ -12,16 +12,13 @@ import {RegisterModule} from "./register-module/register.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./jwt.interceptor";
 import {ErrorPageComponent} from "./shared/error-page/error-page.component";
-import {ProductComponent} from "./product-view/product/product.component";
-import {ProductViewComponent} from "./product-view/product-view.component";
+import {ProductModule} from "./product-module/product.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ProductViewComponent,
-    ProductComponent,
     HeroComponent,
     ErrorPageComponent
   ],
@@ -32,7 +29,8 @@ import {ProductViewComponent} from "./product-view/product-view.component";
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    RegisterModule
+    RegisterModule,
+    ProductModule
   ],
   providers: [
     {

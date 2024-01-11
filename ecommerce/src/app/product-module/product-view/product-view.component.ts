@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {SortingOrder} from "../../dtos/enums/sorting.order";
-import {ProductService} from "../../services/product.service";
-import {ProductDTO} from "../../dtos/ProductDTO";
+import {SortingOrder} from "../../../dtos/enums/sorting.order";
+import {ProductDTO} from "../../../dtos/ProductDTO";
+import {ProductService} from "../../../services/product.service";
 
 @Component({
-  selector: 'app-product-view',
+  selector: 'app-product-module-view',
   templateUrl: './product-view.component.html',
   styleUrl: './product-view.component.css'
 })
