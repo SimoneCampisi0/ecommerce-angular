@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../services/auth.service";
 import {SharedService} from "../../services/shared.service";
 
 @Component({
@@ -14,7 +13,6 @@ export class HomeComponent implements OnInit{
   }
   ngOnInit() {
     this.sharedService.selectedProduct.subscribe(value => {
-      console.log("value: "+value)
       this.selectedProductHome = value
     })
   }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SortingOrder} from "../../../dtos/enums/sorting.order";
 import {ProductDTO} from "../../../dtos/ProductDTO";
 import {ProductService} from "../../../services/product.service";
