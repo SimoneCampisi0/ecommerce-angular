@@ -22,8 +22,6 @@ export class ProductViewComponent implements OnInit {
 
   productList: ProductDTO[] = []
 
-  @Output() selectedProduct = new EventEmitter<boolean>()
-
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
@@ -37,9 +35,5 @@ export class ProductViewComponent implements OnInit {
         this.productList = response
       }
     })
-  }
-
-  onSelectedProduct(status: boolean) {
-    this.selectedProduct.emit(status)
   }
 }

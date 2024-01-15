@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
+import {SharedService} from "../../services/shared.service";
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,13 @@ import {AuthService} from "../../services/auth.service";
 })
 export class HomeComponent implements OnInit{
   selectedProductHome: boolean = false
-  ngOnInit() {
-  }
 
-  onSelectedProductHome(status: boolean) {
-    this.selectedProductHome = status
+  constructor(private sharedService: SharedService) {
+  }
+  ngOnInit() {
+    this.sharedService.selectedProduct.subscribe(value => {
+      console.log("value: "+value)
+      this.selectedProductHome = value
+    })
   }
 }

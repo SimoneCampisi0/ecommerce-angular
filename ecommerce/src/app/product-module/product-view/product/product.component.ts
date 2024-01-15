@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {SharedService} from "../../../../services/shared.service";
 
 @Component({
   selector: 'app-product-module',
@@ -11,21 +12,17 @@ export class ProductComponent implements OnInit {
   @Input() titolo = ""
   @Input() avaiable = false
   @Input() costo = 0
-  @Output() selectedProduct = new EventEmitter<boolean>()
 
   // @Input() imgURL = ""
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute, private sharedService: SharedService) {}
 
   ngOnInit() {
   }
 
-  setSelectedProduct() {
-    this.selectedProduct.emit(true)
-  }
 
   goProductDetails() {
-    this.setSelectedProduct()
+    this.sharedService.changeSelectedProduct(true)
 
     this.router.navigate(
       // ['/home/product', this.idProduct]

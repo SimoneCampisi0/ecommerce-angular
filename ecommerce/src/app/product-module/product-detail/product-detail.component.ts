@@ -10,7 +10,7 @@ export class ProductDetailComponent implements OnInit {
   id: number = 0
   constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() { //TODO: Da product.component.ts non si riesce ad arrivare qui.
+  ngOnInit() {
     console.log("Product detail.")
     // const id = Number(this.route.snapshot.params['id'])
 
@@ -21,4 +21,6 @@ export class ProductDetailComponent implements OnInit {
         }
       )
   }
+
+  //TODO: Rendere il valore selectedProduct in sharedService a false quando si abbandona questa pagina.
 }

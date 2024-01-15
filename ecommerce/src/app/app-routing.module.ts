@@ -12,13 +12,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, children: [
       { path: 'product/:id', component: ProductDetailComponent }
     ]},
-  // { path: 'products-page', component: ProductPageComponent, children: [
-  //     { path: 'products', component: ProductViewComponent, children: [{
-  //         path: 'product-module', component: ProductComponent
-  //       }]}
-  //   ]}, Non necessario. //TODO implementare pagina dettaglio prodotto da acquistare
-  // { path: 'not-found', component: ErrorPageComponent },
-  // { path: '**', redirectTo: '/not-found'} // Rotta che include gli URL non presenti qui. Dev'essere l'ultima.
+  { path: 'not-found', component: ErrorPageComponent },
+  { path: '**', redirectTo: '/not-found'} // Rotta che include gli URL non presenti qui. Dev'essere l'ultima.
 ];
 
 @NgModule({
