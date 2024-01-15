@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -11,6 +11,8 @@ export class ProductComponent implements OnInit {
   @Input() titolo = ""
   @Input() avaiable = false
   @Input() costo = 0
+  @Output() selectedProduct = new EventEmitter<boolean>()
+
   // @Input() imgURL = ""
 
   constructor(private router: Router, private route: ActivatedRoute) {}
@@ -18,9 +20,16 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  setSelectedProduct() {
+    this.selectedProduct.emit(true)
+  }
+
   goProductDetails() {
+    this.setSelectedProduct()
+
     this.router.navigate(
-      ['/home/product-detail', this.idProduct]
+      // ['/home/product', this.idProduct]
+      ['../', 'home', 'product', this.idProduct], {relativeTo: this.route}
       // { queryParams: { id: this.idProduct}}
     )
   }

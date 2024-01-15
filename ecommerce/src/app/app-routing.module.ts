@@ -5,13 +5,12 @@ import {LoginPageComponent} from "./login-module/login-page/login-page.component
 import {RegisterPageComponent} from "./register-module/register-page/register-page.component";
 import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 import {ProductDetailComponent} from "./product-module/product-detail/product-detail.component";
-
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'register', component: RegisterPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomeComponent, children: [
-      {path: 'product-detail/:id', component: ProductDetailComponent }
+      { path: 'product/:id', component: ProductDetailComponent }
     ]},
   // { path: 'products-page', component: ProductPageComponent, children: [
   //     { path: 'products', component: ProductViewComponent, children: [{

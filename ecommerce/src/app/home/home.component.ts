@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 
 @Component({
@@ -6,6 +6,12 @@ import {AuthService} from "../../services/auth.service";
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+  selectedProductHome: boolean = false
+  ngOnInit() {
+  }
 
+  onSelectedProductHome(status: boolean) {
+    this.selectedProductHome = status
+  }
 }

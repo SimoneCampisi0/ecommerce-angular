@@ -1,3 +1,8 @@
 <!--<app-navbar></app-navbar>-->
-<app-hero></app-hero>
-<app-product-module-view></app-product-module-view>
+
+@if(!selectedProductHome) { <!-- TODO: Da testare. Implementato con gli @Output nei vari componenti fino alla home.-->
+  <app-hero></app-hero>
+  <app-product-module-view (selectedProduct)="onSelectedProductHome($event)"></app-product-module-view>
+} @else {
+  <router-outlet></router-outlet>
+}

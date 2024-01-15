@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SortingOrder} from "../../../dtos/enums/sorting.order";
 import {ProductDTO} from "../../../dtos/ProductDTO";
 import {ProductService} from "../../../services/product.service";
@@ -22,6 +22,8 @@ export class ProductViewComponent implements OnInit {
 
   productList: ProductDTO[] = []
 
+  @Output() selectedProduct = new EventEmitter<boolean>()
+
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
@@ -35,5 +37,9 @@ export class ProductViewComponent implements OnInit {
         this.productList = response
       }
     })
+  }
+
+  onSelectedProduct(status: boolean) {
+    this.selectedProduct.emit(status)
   }
 }
