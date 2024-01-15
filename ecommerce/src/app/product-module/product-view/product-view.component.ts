@@ -30,7 +30,6 @@ export class ProductViewComponent implements OnInit {
     // this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter).subscribe({
     this.productService.listaProdotti().subscribe({
       next:(response) => {
-        console.log(this.productList)
         // this.productList = response.content
         this.productList = response
       }
