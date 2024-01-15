@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
   selector: 'app-product-module-detail',
@@ -8,12 +9,10 @@ import {ActivatedRoute, Params} from "@angular/router";
 })
 export class ProductDetailComponent implements OnInit {
   id: number = 0
-  constructor(private route: ActivatedRoute) {}
+
+  constructor(private route: ActivatedRoute, private sharedService: SharedService) {}
 
   ngOnInit() {
-    console.log("Product detail.")
-    // const id = Number(this.route.snapshot.params['id'])
-
     this.route.params //Asincrono, si preferisce.
       .subscribe(
         (params: Params) => {
@@ -22,5 +21,9 @@ export class ProductDetailComponent implements OnInit {
       )
   }
 
-  //TODO: Rendere il valore selectedProduct in sharedService a false quando si abbandona questa pagina.
+  @HostListener('window:popstate', ['$event'])
+  onPopState() {
+    this.sharedService.changeSelectedProduct(false)
+  }
+
 }

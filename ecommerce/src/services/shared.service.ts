@@ -5,6 +5,9 @@ import {BehaviorSubject} from "rxjs";
   providedIn: 'root'
 })
 export class SharedService {
+
+  // BehaviorSubject è un tipo speciale di Observable che possiede un valore corrente. Permette quindi di creare una variabile che può essere osservata.
+  // Ogni volta che il suo valore cambia, tutti i componenti che si sono sottoscritti a questa variabile riceveranno automaticamente l’aggiornamento.
   _selectedProduct = new BehaviorSubject<boolean>(false)
 
   // Essendo un Observable, quando si vuole ricevere il valore aggiornato di selectedProduct, basta eseguire la subscribe su esso
