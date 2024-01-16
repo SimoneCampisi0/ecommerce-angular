@@ -15,17 +15,23 @@
        <div class="email">
          <label for="email">Indirizzo email: </label>
          <input type="text" id="email" name="email" formControlName="email">
+         <div *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched" class="error-message">
+           Email obbligatoria.
+         </div>
        </div>
 
        <div class="password">
          <label for="password">Password: </label>
          <input type="password" id="password" name="password" formControlName="password">
+         <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched" class="error-message">
+           Password obbligatoria.
+         </div>
        </div>
      </div>
 
       <div class="registerLink">Non sei registrato? Clicca <div class="link" (click)="cambiaPagina('register')">qui</div>.</div>
 
-      <button class="loginButton" type="submit" (click)="onLogin()">Login</button>
+      <button class="loginButton" type="submit" (click)="checkLogin()">Login</button>
     </div>
   </div>
 </div>

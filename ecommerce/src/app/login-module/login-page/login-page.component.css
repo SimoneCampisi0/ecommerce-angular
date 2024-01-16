@@ -41,7 +41,6 @@
   padding: 0 5em 0 5em;
 }
 
-
 .titoli {
   margin-top: 1.5em;
   margin-left: 1em;
@@ -51,13 +50,10 @@
   gap: 0.5em;
 }
 
-
 .titolo {
   font-weight: 600;
   font-size: 2em;
 }
-
-
 
 .credenziali {
   display: flex;
@@ -138,4 +134,10 @@ input:focus {
   color: #0000EE;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  padding-top: 0.4em;
 }
