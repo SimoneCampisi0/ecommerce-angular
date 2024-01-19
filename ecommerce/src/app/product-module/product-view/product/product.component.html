@@ -1,12 +1,30 @@
+<!--<div class="card">-->
+<!--  <div class="titoloCard"> {{ titolo }} </div>-->
+<!--  <hr class="line0">-->
+
+
+<!--  <hr class="line1">-->
+
+<!--  <div class="sottoMenu">-->
+<!--    <button class="acquista" (click)="goProductDetails()">Acquista</button>-->
+<!--  </div>-->
+<!--</div>-->
+
 <div class="card">
-  <div class="titoloCard"> {{ titolo }} </div>
+    <img src="/assets/example.jpg" class="cover" alt="{{ titolo }} Image">
+
   <hr class="line0">
 
-  <img src="/assets/example.jpg" class="cover" alt="">
+  <div class="menu" (click)="goProductDetails()">
+    <!-- Ridurre la lunghezza del titolo -->
+    <div class="titolo"> {{ titolo }}</div>
+    <div class="autore">Di <b></b></div>
 
-  <hr class="line1">
+    <div class="prezzoTotale">
+      <div class="prezzoIntero">{{ costoIntero }},&thinsp;</div>
 
-  <div class="sottoMenu">
-    <button class="acquista" (click)="goProductDetails()">Acquista</button>
+      <!-- Aggiungere il decimale come apice -->
+      <div class="prezzoDecimale">{{ costoDecimale }} €</div>
+    </div>
   </div>
 </div>
