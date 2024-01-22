@@ -32,6 +32,6 @@ export class ProductService {
   }
 
   listaProdotti() {
-    return this.http.get<ProductDTO[]>('http://localhost:8080/orders/products/lista-prodotti')
+    return this.http.get<ProductDTO[]>('https://spring-cloud-gateway-production-ed97.up.railway.app/orders/products/lista-prodotti')
   }
 }
