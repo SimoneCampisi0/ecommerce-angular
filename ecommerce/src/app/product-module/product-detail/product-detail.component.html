@@ -1,9 +1,11 @@
 <div class="all" *ngIf="productResponse">
-  <div class="title">{{productResponse.productName}}</div>
 
-  <div class="body" *ngIf="productResponse">
+  <div class="bodyImg">
     <img class="imgProduct" src="assets/example.jpg" alt="">
-    <div class="productDescr"></div>
+  </div>
+
+  <div class="body">
+    <div class="title">{{productResponse.productName}}</div>
   </div>
 
 </div>

@@ -1,22 +1,28 @@
 .all {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
-  margin: 2em 0 1em 7em;
-}
-
-.title {
-  font-weight: 400;
-  font-size: 4em;
-}
-
-.imgProduct {
-  margin-top: 1em;
+  justify-content: space-between;
+  margin: 2em 5em 1em 5em
 }
 
 .body {
-  display: flex;
-  flex-direction: row;
+  width: 50vw;
+  text-align: center;
+
+  padding: 1em;
+  border: 0.5px #FDFDFD solid;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+}
+
+.title {
+  font-size: 3em;
 }
 
 
+.imgProduct {
+  width: 30em;
+}
