@@ -1,1 +1,9 @@
-<div class="all" *ngIf="productResponse">nome prodotto: {{ productResponse.productName }}</div>
+<div class="all" *ngIf="productResponse">
+  <div class="title">{{productResponse.productName}}</div>
+
+  <div class="body" *ngIf="productResponse">
+    <img class="imgProduct" src="assets/example.jpg" alt="">
+    <div class="productDescr"></div>
+  </div>
+
+</div>
