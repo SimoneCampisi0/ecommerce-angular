@@ -1,6 +1,8 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {SharedService} from "../../../services/shared.service";
+import {ProductService} from "../../../services/product.service";
+import {ProductDTO} from "../../../dtos/ProductDTO";
 
 @Component({
   selector: 'app-product-module-detail',
@@ -9,17 +11,27 @@ import {SharedService} from "../../../services/shared.service";
 })
 export class ProductDetailComponent implements OnInit {
   id: number = 0
+  //@ts-ignore
+  productResponse: ProductDTO
 
-  constructor(private route: ActivatedRoute, private sharedService: SharedService) {}
+  constructor(private route: ActivatedRoute, private sharedService: SharedService, private productService: ProductService) {}
 
   ngOnInit() {
-    this.route.params //Asincrono, si preferisce.
-      .subscribe(
-        (params: Params) => {
-          this.id = Number(params['id'])
-        }
-      )
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = Number(params['id']);
+        this.productService.getProductById(this.id).subscribe(
+          (productResponse) => {
+            this.productResponse = productResponse;
+          }
+        );
+      },
+      (error) => {
+        console.error("Error: " + error);
+      }
+    );
   }
+
 
   @HostListener('window:popstate', ['$event'])
   onPopState() {

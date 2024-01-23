@@ -28,7 +28,7 @@ export class ProductViewComponent implements OnInit {
     //TODO: Soluzione temporanea. Trovare un tool che permetta in Angular di gestire il JSON paginato che arriva dal BE.
 
     // this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter).subscribe({
-    this.productService.listaProdotti().subscribe({
+    this.productService.getProducts().subscribe({
       next:(response) => {
         // this.productList = response.content
         this.productList = response

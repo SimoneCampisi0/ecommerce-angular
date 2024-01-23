@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
     // @ts-ignore
     if(localStorage.getItem('currentUser')) {
       let tempUser: UserResponse =  JSON.parse(localStorage.getItem('currentUser') || "")
-
       this.authService.getUsernameByUserId(tempUser.idUser).subscribe({
         next: (response) => {
           this.username = response.split(" ", 2)[0]
