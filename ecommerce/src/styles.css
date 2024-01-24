@@ -4,5 +4,15 @@
 
 body {
   margin: 0;
-  font-family: "Verdana";
+  font-family: UlagadiSansRegular;
+}
+
+@font-face {
+  font-family: 'UlagadiSansRegular';
+  src: url('/assets/fonts/ulagadi/UlagadiSansRegular.ttf');
+}
+
+@font-face {
+  font-family: 'WoodlandBold';
+  src: url('/assets/fonts/PPWoodland-Bold.otf');
 }

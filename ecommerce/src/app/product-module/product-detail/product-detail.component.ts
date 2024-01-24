@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit {
   id: number = 0
   //@ts-ignore
   productResponse: ProductDTO
+  seller = "Mario Rossi" //TODO: collegare al seller effettivo.
 
   constructor(private route: ActivatedRoute, private sharedService: SharedService, private productService: ProductService) {}
 
