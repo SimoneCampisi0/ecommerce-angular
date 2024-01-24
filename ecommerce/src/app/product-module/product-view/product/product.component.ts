@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit {
       this.costoDecimale = 0
     } else {
       this.costoDecimale = Number(this.costoTotale.toString().split('.')[1])
-      this.costoIntero = this.costoTotale - this.costoDecimale
+      this.costoIntero = this.costoTotale - Number("0."+this.costoDecimale)
     }
   }
 
