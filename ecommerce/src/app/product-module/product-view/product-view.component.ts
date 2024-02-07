@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SortingOrder} from "../../../dtos/enums/sorting.order";
-import {ProductDTO} from "../../../dtos/ProductDTO";
+import {ProductDTO} from "../../../dtos/ViewProductDTO";
 import {ProductService} from "../../../services/product.service";
 
 @Component({

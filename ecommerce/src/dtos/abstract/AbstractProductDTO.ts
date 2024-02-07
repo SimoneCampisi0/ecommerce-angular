@@ -1,4 +1,6 @@
-export class ProductDTO {
+import {PhotoDTO} from "../PhotoDTO";
+
+export abstract class AbstractProductDTO {
   idProduct: number
 
   productName: string
@@ -13,15 +15,15 @@ export class ProductDTO {
 
   constructor(idProduct: number,
 
-  productName: string,
+              productName: string,
 
-  productDesq: string,
+              productDesq: string,
 
-  productCost: number,
+              productCost: number,
 
-  available: boolean,
+              available: boolean,
 
-  codSeller: number) {
+              codSeller: number) {
     this.idProduct = idProduct
     this.productName = productName
     this.productDesq = productDesq

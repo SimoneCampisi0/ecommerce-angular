@@ -1,14 +1,30 @@
 <div class="all" *ngIf="productResponse">
 
   <div class="bodyImg">
-    <img class="imgProduct" src="assets/example.png" alt="">
+    <img class="imgProduct" [src]="productResponse.photoResponses[0]" alt="">
   </div>
 
   <div class="body">
     <div class="title">{{productResponse.productName}}</div>
 
     <div class="venditore">Venduto da: <div class="venditoreNome"><b>{{ seller }}</b></div></div>
-    <div class="prezzo"><b>{{productResponse.productCost}} euro</b></div>
+    <div class="prezzo"><b>€{{productResponse.productCost}}</b></div>
+
+<!--    <div class="colore" *ngIf="productResponse.type === 'dress'">-->
+    <div class="colore">
+      <div class="coloreText"> <b> Colore </b></div>
+      <div class="radio">
+
+        <div *ngFor="let color of productResponse.colorsResponse">
+          <label for="color_{{color}}}">
+            <input id="color_{{color}}}" [value]="color" type="radio" name="colors" [(ngModel)]="radioSelected">
+            {{ color }}
+          </label>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
 </div>

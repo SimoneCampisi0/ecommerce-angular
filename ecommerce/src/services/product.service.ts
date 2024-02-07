@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ProductDTO} from "../dtos/ProductDTO";
+import {ProductDTO} from "../dtos/ViewProductDTO";
 import {SortingOrder} from "../dtos/enums/sorting.order";
 
 @Injectable({

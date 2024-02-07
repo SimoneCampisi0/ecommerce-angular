@@ -2,7 +2,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from "@angular/router";
 import {SharedService} from "../../../services/shared.service";
 import {ProductService} from "../../../services/product.service";
-import {ProductDTO} from "../../../dtos/ProductDTO";
+import {ProductDTO} from "../../../dtos/ViewProductDTO";
 
 @Component({
   selector: 'app-product-module-detail',
@@ -11,9 +11,13 @@ import {ProductDTO} from "../../../dtos/ProductDTO";
 })
 export class ProductDetailComponent implements OnInit {
   id: number = 0
+
   //@ts-ignore
   productResponse: ProductDTO
+
   seller = "Mario Rossi" //TODO: collegare al seller effettivo.
+
+  radioSelected!: string
 
   constructor(private route: ActivatedRoute, private sharedService: SharedService, private productService: ProductService) {}
 

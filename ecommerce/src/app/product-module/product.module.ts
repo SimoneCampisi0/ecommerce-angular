@@ -4,6 +4,7 @@ import {ProductDetailComponent} from "./product-detail/product-detail.component"
 import {ProductViewComponent} from "./product-view/product-view.component";
 import {ProductComponent} from "./product-view/product/product.component";
 import {ShortenPipe} from "../../pipes/shorten.pipe";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -18,7 +19,8 @@ import {ShortenPipe} from "../../pipes/shorten.pipe";
   ],
     imports: [
         CommonModule,
-        ShortenPipe
+        ShortenPipe,
+        FormsModule
     ]
 })
 export class ProductModule { }
