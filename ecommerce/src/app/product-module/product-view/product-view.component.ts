@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SortingOrder} from "../../../dtos/enums/sorting.order";
-import {ProductDTO} from "../../../dtos/ViewProductDTO";
+import {ViewProductDTO} from "../../../dtos/ViewProductDTO";
 import {ProductService} from "../../../services/product.service";
 
 @Component({
@@ -20,7 +20,7 @@ export class ProductViewComponent implements OnInit {
 
   sortingFilter: string = ""
 
-  productList: ProductDTO[] = []
+  productList: ViewProductDTO[] = []
 
   constructor(private productService: ProductService) {}
 

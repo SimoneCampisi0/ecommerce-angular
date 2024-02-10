@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {ProductDTO} from "../dtos/ViewProductDTO";
+import {ViewProductDTO} from "../dtos/ViewProductDTO";
 import {SortingOrder} from "../dtos/enums/sorting.order";
+import {DetailProductDTO} from "../dtos/DetailProductDTO";
 
 @Injectable({
   providedIn: 'root'
@@ -32,11 +33,11 @@ export class ProductService {
   }
 
   getProducts() {
-    return this.http.get<ProductDTO[]>('http://localhost:8080/orders/products/lista-prodotti')
+    return this.http.get<ViewProductDTO[]>('http://localhost:8080/orders/products/lista-prodotti')
     // return this.http.get<ProductDTO[]>('https://spring-cloud-gateway-production-ed97.up.railway.app/orders/products/lista-prodotti')
   }
 
   getProductById(idProduct: number) {
-    return this.http.get<ProductDTO>('http://localhost:8080/orders/products/leggi-prodotto?idProdotto='+idProduct)
+    return this.http.get<DetailProductDTO>('http://localhost:8080/orders/products/leggi-prodotto?idProdotto='+idProduct)
   }
 }
