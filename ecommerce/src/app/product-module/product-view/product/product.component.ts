@@ -12,6 +12,7 @@ export class ProductComponent implements OnInit {
   @Input() titolo = ""
   @Input() avaiable = false
   @Input() costoTotale = 0
+  @Input() urlImg!: string
   costoIntero: number = 0
   costoDecimale = 0
 
