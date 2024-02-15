@@ -1,4 +1,3 @@
-import {PhotoDTO} from "../PhotoDTO";
 
 export abstract class AbstractProductDTO {
   idProduct: number
