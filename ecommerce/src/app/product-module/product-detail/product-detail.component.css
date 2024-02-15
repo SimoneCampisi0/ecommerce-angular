@@ -18,6 +18,8 @@
 
   margin-left: 2em;
   padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 1em;
 }
 
 .imgProduct {
@@ -45,6 +47,20 @@
   color: var(--primary-color);
 }
 
+.quantita {
+  margin-top: 2em;
+  padding-left: 0.3em;
+}
+
+.selectQuantita {
+  width: 4em;
+  margin-top: 0.8em;
+  margin-left: 0.3em;
+  padding: 0.3em;
+  border: 1px solid #dcd4d4;
+  border-radius: 10px;
+}
+
 .prezzo {
   padding-left: 0.3em;
   font-size: 1.2em;
@@ -52,21 +68,22 @@
 }
 
 .colore {
-  margin-top: 4em;
+  margin-top: 2em;
   padding-left: 0.3em;
   display: flex;
   flex-direction: column;
 }
 
-/*.colorSelect {*/
-/*  width: 20px;*/
-/*  height: 20px;*/
-/*  border: 1px solid black;*/
-/*}*/
+.coloreRadio {
+  display: flex;
+  flex-direction: row;
+}
 
 .colorLabel {
   display: block;
   width: 1em;
+  margin-right: 1em;
+  margin-top: 0.4em;
 }
 
 .colorLabel > input {
@@ -86,7 +103,34 @@
 
 .colorValue {
   height: 1em;
-  margin-top: 0.5em;
+  width: 1em;
+  border-radius: 50%;
+}
+
+.acquistaButton {
+  /*margin: 1.5em 0 0 0;*/
+  margin: 4em auto 0 auto;
+  width: 80%;
+
+
+  cursor: pointer;
+  transition-duration: 0.2s;
+  padding: 0.5em;
+  border-radius: 10px;
+
+
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.acquistaButton:hover {
+  background-color: white;
+  color: black;
 }
 
 @media screen and (max-width: 1000px) {

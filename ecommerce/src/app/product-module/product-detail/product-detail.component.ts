@@ -12,6 +12,10 @@ import {DetailProductDTO} from "../../../dtos/DetailProductDTO";
 export class ProductDetailComponent implements OnInit {
   id: number = 0
 
+  opzioniQuantita!: number[]
+
+  actualQuantita: number = 1
+
   //@ts-ignore
   productResponse: DetailProductDTO
 
@@ -28,15 +32,26 @@ export class ProductDetailComponent implements OnInit {
         this.productService.getProductById(this.id).subscribe(
           (productResponse) => {
             this.productResponse = productResponse;
+
+            this.initializeProduct();
           }
         );
       },
       (error) => {
         console.error("Error: " + error);
       }
-    );
+    )
   }
 
+  initializeProduct() {
+    //Inizializza la quantità
+    const maxQuantity = Math.min(this.productResponse.productQuantity, 5);
+    this.opzioniQuantita = Array.from({ length: maxQuantity }, (_, i) => i + 1);
+  }
+
+  onAcquista() {
+
+  }
 
   @HostListener('window:popstate', ['$event'])
   onPopState() {

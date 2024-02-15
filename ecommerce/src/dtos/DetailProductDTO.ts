@@ -14,6 +14,8 @@ export class DetailProductDTO extends AbstractProductDTO{
 
               productCost: number,
 
+              productQuantity: number,
+
               available: boolean,
 
               codSeller: number,
@@ -21,7 +23,7 @@ export class DetailProductDTO extends AbstractProductDTO{
               photoResponses: PhotoDTO[],
 
               colorsResponse: string[]) {
-    super(idProduct, productName, productDesq, productCost, available, codSeller)
+    super(idProduct, productName, productDesq, productCost, productQuantity, available, codSeller)
     this.photoResponses = photoResponses
     this.colorsResponse = colorsResponse
   }

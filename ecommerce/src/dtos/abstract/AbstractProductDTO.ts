@@ -9,6 +9,8 @@ export abstract class AbstractProductDTO {
 
   productCost: number
 
+  productQuantity: number
+
   available: boolean
 
   codSeller: number
@@ -21,6 +23,8 @@ export abstract class AbstractProductDTO {
 
               productCost: number,
 
+              productQuantity: number,
+
               available: boolean,
 
               codSeller: number) {
@@ -28,6 +32,7 @@ export abstract class AbstractProductDTO {
     this.productName = productName
     this.productDesq = productDesq
     this.productCost = productCost
+    this.productQuantity = productQuantity
     this.available = available
     this.codSeller = codSeller
   }
