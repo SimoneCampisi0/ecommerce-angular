@@ -16,9 +16,9 @@
       <div class="radio">
 
         <div *ngFor="let color of productResponse.colorsResponse">
-          <label for="color_{{color}}}">
+          <label for="color_{{color}}}" class="colorLabel">
             <input id="color_{{color}}}" [value]="color" type="radio" name="colors" [(ngModel)]="radioSelected">
-            {{ color }}
+            <div class="colorValue" [style.background-color]="color"></div>
           </label>
         </div>
 

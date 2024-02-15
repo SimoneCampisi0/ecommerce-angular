@@ -58,6 +58,37 @@
   flex-direction: column;
 }
 
+/*.colorSelect {*/
+/*  width: 20px;*/
+/*  height: 20px;*/
+/*  border: 1px solid black;*/
+/*}*/
+
+.colorLabel {
+  display: block;
+  width: 1em;
+}
+
+.colorLabel > input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.colorLabel > input + div {
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.colorLabel > input:checked + div {
+  background-color: #ffd6bb;
+  border: 2px solid black;
+}
+
+.colorValue {
+  height: 1em;
+  margin-top: 0.5em;
+}
+
 @media screen and (max-width: 1000px) {
   .all {
     flex-direction: column;
