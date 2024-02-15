@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 
-@if(!selectedProductHome) {
+@if(!selectedProductHome && checkURL()) {
   <app-hero></app-hero>
   <app-product-module-view></app-product-module-view>
 } @else {

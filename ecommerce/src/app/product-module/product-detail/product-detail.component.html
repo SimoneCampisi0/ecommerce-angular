@@ -32,6 +32,8 @@
 
     <button class="acquistaButton" type="submit" (click)="onAcquista()">Aggiungi al carrello</button>
 
-
   </div>
 </div>
+
+
+<app-product-detail-description *ngIf="productResponse" [productDescription]="productResponse.productDesq"></app-product-detail-description>

@@ -1,5 +1,5 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {SharedService} from "../../../services/shared.service";
 import {ProductService} from "../../../services/product.service";
 import {DetailProductDTO} from "../../../dtos/DetailProductDTO";
@@ -23,7 +23,29 @@ export class ProductDetailComponent implements OnInit {
 
   radioSelected!: string
 
-  constructor(private route: ActivatedRoute, private sharedService: SharedService, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService, private productService: ProductService) {}
+
+  // ngOnInit() {
+  //   this.route.params.subscribe(
+  //     (params: Params) => {
+  //       this.id = Number(params['id']);
+  //       this.productService.getProductById(this.id).subscribe(
+  //         (productResponse) => {
+  //           this.productResponse = productResponse;
+  //
+  //           this.initializeProduct();
+  //         }
+  //       ),
+  //       () => {
+  //           this.router.navigate(['/not-found'])
+  //         }
+  //     },
+  //     (error) => {
+  //       console.log("a")
+  //       this.router.navigate(['/not-found'])
+  //     }
+  //   )
+  // }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -32,16 +54,16 @@ export class ProductDetailComponent implements OnInit {
         this.productService.getProductById(this.id).subscribe(
           (productResponse) => {
             this.productResponse = productResponse;
-
             this.initializeProduct();
+          },
+          (error) => {
+            this.router.navigate(['/not-found']);
           }
         );
-      },
-      (error) => {
-        console.error("Error: " + error);
       }
-    )
+    );
   }
+
 
   initializeProduct() {
     //Inizializza la quantità
