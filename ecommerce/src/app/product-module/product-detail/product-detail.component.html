@@ -1,39 +1,42 @@
-<div class="all" *ngIf="productResponse">
+<div class="all">
+  <div class="image-detail-section" *ngIf="productResponse">
 
-  <div class="bodyImg">
-    <img class="imgProduct" [src]="productResponse.photoResponses[0].url" alt="">
-  </div>
-
-  <div class="body">
-    <div class="title">{{productResponse.productName}}</div>
-
-    <div class="venditore">Venduto da: <div class="venditoreNome"><b>{{ seller }}</b></div></div>
-    <div class="prezzo"><b>€{{productResponse.productCost}}</b></div>
-
-    <div class="quantita"> <b>Quantità </b> </div>
-    <select [(ngModel)]="actualQuantita" class="selectQuantita">
-      <option *ngFor="let q of opzioniQuantita" [value]="q">
-        {{ q }}
-      </option>
-    </select>
-
-    <!--    <div class="colore" *ngIf="productResponse.type === 'dress'">-->
-    <div class="colore">
-      <div class="coloreText"> <b> Colore </b></div>
-      <div class="coloreRadio">
-        <div *ngFor="let color of productResponse.colorsResponse">
-          <label for="color_{{color}}}" class="colorLabel">
-            <input id="color_{{color}}}" [value]="color" type="radio" name="colors" [(ngModel)]="radioSelected">
-            <div class="colorValue" [style.background-color]="color"></div>
-          </label>
-        </div>
-      </div>
+    <div class="bodyImg">
+      <img class="imgProduct" [src]="productResponse.photoResponses[0].url" alt="">
     </div>
 
-    <button class="acquistaButton" type="submit" (click)="onAcquista()">Aggiungi al carrello</button>
+    <div class="body">
+      <div class="title">{{productResponse.productName}}</div>
 
+      <div class="venditore">Venduto da: <div class="venditoreNome"><b>{{ seller }}</b></div></div>
+      <div class="prezzo"><b>€{{productResponse.productCost}}</b></div>
+
+      <div class="quantita"> <b>Quantità </b> </div>
+      <select [(ngModel)]="actualQuantita" class="selectQuantita">
+        <option *ngFor="let q of opzioniQuantita" [value]="q">
+          {{ q }}
+        </option>
+      </select>
+
+      <!--    <div class="colore" *ngIf="productResponse.type === 'dress'">-->
+      <div class="colore">
+        <div class="coloreText"> <b> Colore </b></div>
+        <div class="coloreRadio">
+          <div *ngFor="let color of productResponse.colorsResponse">
+            <label for="color_{{color}}}" class="colorLabel">
+              <input id="color_{{color}}}" [value]="color" type="radio" name="colors" [(ngModel)]="radioSelected">
+              <div class="colorValue" [style.background-color]="color"></div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button class="acquistaButton" type="submit" (click)="onAcquista()">Aggiungi al carrello</button>
+
+    </div>
   </div>
+
+  <app-product-detail-description *ngIf="productResponse" [productDescription]="productResponse.productDesq"></app-product-detail-description>
 </div>
 
 
-<app-product-detail-description *ngIf="productResponse" [productDescription]="productResponse.productDesq"></app-product-detail-description>
