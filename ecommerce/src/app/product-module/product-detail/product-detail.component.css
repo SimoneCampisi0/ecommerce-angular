@@ -1,8 +1,8 @@
 .all {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /*justify-content: center;*/
+  /*align-items: center;*/
 }
 
 .image-detail-section {
@@ -10,9 +10,8 @@
   flex-direction: row;
 
   justify-content: space-between;
-  /*margin: 2em 5em 1em 5em;*/
   padding: 2em 5em 1em 5em;
-  height: 80vh;
+  /*height: 80vh;*/
 }
 
 .body {
@@ -37,7 +36,6 @@
 
 .title {
   font-size: 2.5em;
-  /*padding: 0.5em 1em 0.2em 1.5em;*/
   padding: 0.5em 1em 0.2em 0;
 }
 
@@ -151,18 +149,19 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
     margin: 1em;
   }
 
   .imgProduct {
-    height: 60vh;
+    height: auto;
   }
 
   .body {
     margin-left: 0;
-    margin-top: 4em;
     width: 45vw;
-    /*height: 85vh;*/
+  }
+
+  .bodyImg {
+    height: auto;
   }
 }
