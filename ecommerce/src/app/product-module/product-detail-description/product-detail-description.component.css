@@ -10,6 +10,19 @@
   padding: 2em 5em 1em 5em
 }
 
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+  --mat-tab-header-active-label-text-color: var(--primary-color);
+  --mdc-tab-indicator-active-indicator-color: var(--primary-color);
+
+  --mat-tab-header-active-focus-label-text-color: var(--primary-color);
+  --mat-tab-header-active-hover-label-text-color: var(--primary-color);
+  --mat-tab-header-active-focus-indicator-color: var(--primary-color);
+  --mat-tab-header-active-hover-indicator-color: var(--primary-color);
+
+  --mat-tab-header-active-ripple-color: var(--primary-color);
+  --mat-tab-header-inactive-ripple-color: var(--primary-color);
+}
+
 @media screen and (max-width: 1000px) {
   .card {
     flex-direction: column;
