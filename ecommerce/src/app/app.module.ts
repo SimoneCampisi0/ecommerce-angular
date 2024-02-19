@@ -13,6 +13,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./jwt.interceptor";
 import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 import {ProductModule} from "./product-module/product.module";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatSlideToggle} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {ProductModule} from "./product-module/product.module";
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    }
+    },
+    provideAnimationsAsync()
   ],
   exports: [
     NavbarComponent

@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.table {
+  padding: 2em 5em 1em 5em
+}
+
 @media screen and (max-width: 1000px) {
   .card {
     flex-direction: column;

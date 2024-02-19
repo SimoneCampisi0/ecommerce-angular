@@ -2,13 +2,25 @@
     Vedi questo link: https://material.angular.io/components/tabs/overview
   -->
 
-<div class="card">
-  <div class="header">
-    <div class="voce">DESCRIZIONE PRODOTTO</div>
-    <div class="voce">VENDITORE</div>
-  </div>
+<!--<div class="card">-->
+<!--  <div class="header">-->
+<!--    <div class="voce">DESCRIZIONE PRODOTTO</div>-->
+<!--    <div class="voce">VENDITORE</div>-->
+<!--  </div>-->
 
-  <div class="description">
-    {{ productDescription }}
-  </div>
+<!--  <div class="description">-->
+<!--    {{ productDescription }}-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="table">
+  <mat-tab-group>
+    <mat-tab label="DESCRIZIONE">
+      {{ productDescription }}
+    </mat-tab>
+
+    <mat-tab label="VENDITORE">
+      Venditore
+    </mat-tab>
+  </mat-tab-group>
 </div>

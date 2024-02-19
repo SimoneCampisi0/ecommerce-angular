@@ -7,6 +7,8 @@ import {ShortenPipe} from "../../pipes/shorten.pipe";
 import {FormsModule} from "@angular/forms";
 import {ProductDetailDescriptionComponent} from "./product-detail-description/product-detail-description.component";
 import {RouterOutlet} from "@angular/router";
+import {MatSlideToggle} from "@angular/material/slide-toggle";
+import {MatTab, MatTabGroup} from "@angular/material/tabs";
 
 
 
@@ -24,7 +26,10 @@ import {RouterOutlet} from "@angular/router";
     CommonModule,
     ShortenPipe,
     FormsModule,
-    RouterOutlet
+    RouterOutlet,
+    MatSlideToggle,
+    MatTabGroup,
+    MatTab
   ]
 })
 export class ProductModule { }
