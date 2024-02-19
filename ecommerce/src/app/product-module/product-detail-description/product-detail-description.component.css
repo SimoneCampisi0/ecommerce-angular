@@ -7,7 +7,12 @@
 }
 
 .table {
-  padding: 2em 5em 1em 5em
+  /*padding: 2em 5em 1em 5em*/
+
+  padding: 1em 1em 1em 1em;
+  margin: 2em 5em 1em 5em;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 .mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
@@ -23,10 +28,20 @@
   --mat-tab-header-inactive-ripple-color: var(--primary-color);
 }
 
+.cellProduct{
+  padding-top: 1em !important;
+  padding-left: 0.2em;
+  height: auto;
+}
+
 @media screen and (max-width: 1000px) {
   .card {
     flex-direction: column;
     justify-content: flex-start;
+  }
+
+  .table {
+    margin: 0.5em 5em 1em 5em;
   }
 }
 

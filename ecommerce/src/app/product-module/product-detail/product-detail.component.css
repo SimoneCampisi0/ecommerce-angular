@@ -1,6 +1,7 @@
 .all {
   display: flex;
   flex-direction: column;
+  width: auto;
   /*justify-content: center;*/
   /*align-items: center;*/
 }
@@ -20,7 +21,8 @@
 
   /*border: 0.5px #FDFDFD solid;*/
   border-radius: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* TODO: da commentare */
+  /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); !* TODO: da commentare *!*/
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
 
   margin-left: 2em;
   padding-left: 2em;
@@ -36,7 +38,7 @@
 
 .title {
   font-size: 2.5em;
-  padding: 0.5em 1em 0.2em 0;
+  padding: 1.5em 1em 0.5em 0;
 }
 
 .venditore {
@@ -70,7 +72,7 @@
 .prezzo {
   padding-left: 0.3em;
   font-size: 1.2em;
-  margin-top: 0.5em;
+  margin-top: 1em;
 }
 
 .colore {
@@ -114,24 +116,19 @@
 }
 
 .acquistaButton {
-  /*margin: 1.5em 0 0 0;*/
-  margin: 4em auto 0 auto;
-  width: 80%;
-
-
+  margin: 5.5em auto 0 auto;
+  width: 50%;
   cursor: pointer;
   transition-duration: 0.2s;
-  padding: 0.5em;
+  padding: 0.2em;
   border-radius: 10px;
-
-
   border: 2px solid var(--primary-color);
   background-color: var(--primary-color);
   color: white;
-
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2em;
 }
 
 .acquistaButton:hover {
@@ -152,6 +149,7 @@
     justify-content: flex-start;
     align-items: center;
     margin: 1em;
+    gap: 2em;
   }
 
   .imgProduct {
@@ -165,5 +163,11 @@
 
   .bodyImg {
     height: auto;
+  }
+
+  .acquistaButton {
+    margin: 1em auto 0 auto;
+    font-size: 1.8em;
+    width: auto;
   }
 }
