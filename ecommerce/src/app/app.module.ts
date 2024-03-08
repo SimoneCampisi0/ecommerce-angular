@@ -17,6 +17,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {MatIcon} from "@angular/material/icon";
 import {CartComponent} from "./navbar/cart/cart.component";
+import {
+  MatCard,
+  MatCardContent,
+  MatCardHeader, MatCardImage, MatCardSmImage,
+  MatCardSubtitle,
+  MatCardTitle,
+  MatCardTitleGroup
+} from "@angular/material/card";
+import {MatFabButton} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -36,7 +45,15 @@ import {CartComponent} from "./navbar/cart/cart.component";
     LoginModule,
     RegisterModule,
     ProductModule,
-    MatIcon
+    MatIcon,
+    MatCard,
+    MatCardHeader,
+    MatCardTitleGroup,
+    MatCardContent,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatCardSmImage,
+    MatFabButton
   ],
   providers: [
     {

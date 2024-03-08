@@ -1,0 +1,9 @@
+In product-detail.component.ts implementare un nuovo DTO che rappresenti gli oggetti, dello stesso tipo, che vengono aggiunti al carrello.
+In particolare, essi avranno:
+  -Quantità
+   -Costo calcolato dinamicamente in base alla quantità
+   -Id dell'utente acquirente.
+Questo DTO si chiamerà OrderProductDTO e farà parte di OrderDTO, che comprende tutti gli oggetti
+acquistati dall'utente in quella sessione.
+
+Trasportare tutto ciò sul BE.

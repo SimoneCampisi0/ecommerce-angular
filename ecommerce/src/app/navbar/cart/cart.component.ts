@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {CartService} from "../../../services/cart.service";
 import {DetailProductDTO} from "../../../dtos/DetailProductDTO";
 import {Observable} from "rxjs";
@@ -13,6 +13,8 @@ export class CartComponent implements OnInit{
 
   products$!: Observable<DetailProductDTO[]>;
 
+  divColor: string = 'black';
+
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
@@ -21,6 +23,11 @@ export class CartComponent implements OnInit{
 
   showMenu() {
     this.showCartMenu = !this.showCartMenu;
+    if(this.showCartMenu) {
+      this.divColor = 'white';
+    } else {
+      this.divColor = 'black';
+    }
     this.products$ = this.cartService.getProducts();
   }
 
