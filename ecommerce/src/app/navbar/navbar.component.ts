@@ -10,8 +10,7 @@ import {SharedService} from "../../services/shared.service";
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
-  //@ts-ignore
-  username: String
+  username!: string;
 
   constructor(private router: Router, private authService: AuthService, private sharedService: SharedService) {}
 
@@ -29,7 +28,6 @@ export class NavbarComponent implements OnInit {
       })
     }
   }
-
 
   cambiaPagina(pagina: string) {
     if(pagina === 'home') {

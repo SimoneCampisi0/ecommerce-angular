@@ -1,0 +1,8 @@
+<div class="cart" (click)="showMenu()">
+  <mat-icon>shopping_basket</mat-icon>
+</div>
+<div class="cartMenu" *ngIf="this.showCartMenu">
+  <div *ngFor="let product of products$ | async">
+    {{ product.idProduct }}
+  </div>
+</div>

@@ -15,6 +15,8 @@ import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 import {ProductModule} from "./product-module/product.module";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatSlideToggle} from "@angular/material/slide-toggle";
+import {MatIcon} from "@angular/material/icon";
+import {CartComponent} from "./navbar/cart/cart.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {MatSlideToggle} from "@angular/material/slide-toggle";
     NavbarComponent,
     HomeComponent,
     HeroComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    CartComponent
   ],
   imports: [
     HttpClientModule,
@@ -32,7 +35,8 @@ import {MatSlideToggle} from "@angular/material/slide-toggle";
     AppRoutingModule,
     LoginModule,
     RegisterModule,
-    ProductModule
+    ProductModule,
+    MatIcon
   ],
   providers: [
     {

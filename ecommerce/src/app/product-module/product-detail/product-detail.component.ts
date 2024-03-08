@@ -3,6 +3,7 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {SharedService} from "../../../services/shared.service";
 import {ProductService} from "../../../services/product.service";
 import {DetailProductDTO} from "../../../dtos/DetailProductDTO";
+import {CartService} from "../../../services/cart.service";
 
 @Component({
   selector: 'app-product-module-detail',
@@ -23,7 +24,7 @@ export class ProductDetailComponent implements OnInit {
 
   radioSelected!: string
 
-  constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService, private productService: ProductService, private cartService: CartService) {}
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -50,7 +51,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onAcquista() {
-
+    this.cartService.addProduct(this.productResponse);
   }
 
   @HostListener('window:popstate', ['$event'])
