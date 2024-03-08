@@ -14,7 +14,6 @@ import {JwtInterceptor} from "./jwt.interceptor";
 import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 import {ProductModule} from "./product-module/product.module";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {MatIcon} from "@angular/material/icon";
 import {CartComponent} from "./navbar/cart/cart.component";
 import {

@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CartService} from "../../../services/cart.service";
 import {DetailProductDTO} from "../../../dtos/DetailProductDTO";
 import {Observable} from "rxjs";
