@@ -1,3 +1,7 @@
-<div class="productList">
+<div class="productList" *ngIf="productList.length !== 0">
   <app-product-module *ngFor="let product of productList" [idProduct]="product.idProduct" [titolo]="product.productName" [avaiable]="product.available" [costoTotale]="product.productCost" [urlImg]="product.firstPhotoResponse.url"></app-product-module>
+</div>
+
+<div class="no-product-warn" *ngIf="productList.length === 0">
+  Al momento non è disponibile nessun prodotto.
 </div>

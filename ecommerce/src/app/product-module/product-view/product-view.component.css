@@ -9,3 +9,11 @@
 
   gap: 1.5em;
 }
+
+.no-product-warn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  padding: 2em;
+}
