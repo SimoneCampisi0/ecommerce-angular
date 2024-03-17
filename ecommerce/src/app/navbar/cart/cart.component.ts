@@ -9,25 +9,29 @@ import {Observable} from "rxjs";
   styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit{
-  showCartMenu: boolean = false;
-
   products$!: Observable<DetailProductDTO[]>;
 
   divColor: string = 'black';
+
+  // showCartMenu: boolean = false;
+  showCartMenu!: boolean;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
     this.products$ = this.cartService.getProducts();
+    this.cartService.getCartOpening().subscribe(cartOpening => {
+      this.showCartMenu = cartOpening;
+      if(this.showCartMenu) {
+        this.divColor = 'white';
+      } else {
+        this.divColor = 'black';
+      }
+    })
   }
 
   showMenu() {
-    this.showCartMenu = !this.showCartMenu;
-    if(this.showCartMenu) {
-      this.divColor = 'white';
-    } else {
-      this.divColor = 'black';
-    }
+    this.cartService.setCartOpening(!this.showCartMenu);
     this.products$ = this.cartService.getProducts();
   }
 

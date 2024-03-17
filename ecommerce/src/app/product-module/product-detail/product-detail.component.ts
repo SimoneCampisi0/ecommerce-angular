@@ -52,6 +52,7 @@ export class ProductDetailComponent implements OnInit {
 
   onAcquista() {
     this.cartService.addProduct(this.productResponse);
+    this.cartService.setCartOpening(true);
   }
 
   @HostListener('window:popstate', ['$event'])

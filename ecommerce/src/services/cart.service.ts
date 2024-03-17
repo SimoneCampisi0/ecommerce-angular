@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Observable, of} from "rxjs";
+import {BehaviorSubject, Observable, of} from "rxjs";
 import {DetailProductDTO} from "../dtos/DetailProductDTO";
 
 @Injectable({
@@ -7,6 +7,9 @@ import {DetailProductDTO} from "../dtos/DetailProductDTO";
 })
 export class CartService {
   private products: DetailProductDTO[] = [];
+
+  private cartSubject = new BehaviorSubject(false);
+  currentCart = this.cartSubject.asObservable();
 
   products$: Observable<DetailProductDTO[]> = of(this.products);
 
@@ -29,4 +32,14 @@ export class CartService {
     }
     return this.products$
   }
+
+  getCartOpening(): Observable<boolean> {
+    return this.currentCart;
+  }
+
+  setCartOpening(cartOpening: boolean) {
+    this.cartSubject.next(cartOpening);
+  }
+
+
 }
