@@ -1,21 +1,20 @@
-<div [ngStyle]="{'color': divColor}" class="cart" (click)="showMenu()">
+<div [ngStyle]="{'color': isCartOpen ? 'white' : 'black' }" class="cart" (click)="showMenu()">
   <mat-icon>shopping_basket</mat-icon>
 </div>
 
-<div class="cartMenu" *ngIf="this.showCartMenu">
-
-  <div *ngIf="(products$ | async)?.length! > 0">
+<div class="cartMenu" *ngIf="this.cartService.getIsCartOpen() | async">
+  <div *ngIf="orderProducts?.length! > 0">
     <div class="cartTitle">Carrello:</div>
-    <mat-card *ngFor="let product of products$ | async" class="cartProduct">
+    <mat-card *ngFor="let product of orderProducts" class="cartProduct">
       <mat-card-header>
         <mat-card-title-group>
-          <mat-card-title>{{ product.productName }}</mat-card-title>
-          <mat-card-subtitle> Q.1 </mat-card-subtitle>
-          <img class="imgCartProduct" mat-card-sm-image src="{{ product.photoResponses[0].url }}"  alt="">
+          <mat-card-title>{{ product.idProduct }}</mat-card-title>
+          <mat-card-subtitle> {{ product.quantita }}</mat-card-subtitle>
+<!--          <img class="imgCartProduct" mat-card-sm-image src="{{ product.photoResponses[0].url }}"  alt="">-->
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
-        {{ product.productCost }}
+        {{ product.costoSingoloPerProdotto }}
       </mat-card-content>
     </mat-card>
     <button mat-fab extended style="text-align: center;background-color: var(--primary-color)">
@@ -24,7 +23,7 @@
     </button>
   </div>
 
-  <div class="empty" *ngIf="(products$ | async)?.length === 0">
+  <div class="empty" *ngIf="orderProducts?.length === 0">
     Carrello vuoto
   </div>
 

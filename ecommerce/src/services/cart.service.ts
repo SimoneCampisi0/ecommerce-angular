@@ -1,45 +1,30 @@
 import {Injectable} from "@angular/core";
-import {BehaviorSubject, Observable, of} from "rxjs";
-import {DetailProductDTO} from "../dtos/DetailProductDTO";
+import {BehaviorSubject, Observable} from "rxjs";
+import {CreateOrderRequest} from "../dtos/CreateOrderRequest";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private products: DetailProductDTO[] = [];
+  private isCartOpenSubject = new BehaviorSubject(false);
+  isCartOpen = this.isCartOpenSubject.asObservable();
 
-  private cartSubject = new BehaviorSubject(false);
-  currentCart = this.cartSubject.asObservable();
+  private orderInMemory!: CreateOrderRequest
+  private orderInMemorySubject = new BehaviorSubject(this.orderInMemory)
+  orderInMemoryObservable = this.orderInMemorySubject.asObservable();
 
-  products$: Observable<DetailProductDTO[]> = of(this.products);
-
-  addProduct(productToAdd: DetailProductDTO) {
-    this.products.push(productToAdd);
-    this.products$ = of(this.products);
-    this.saveAllCartOnLocalStorage();
+  // Ritorna isCartOpenSubject come Observable, in modo da poter essere sottoscritto nei vari componenti
+  getIsCartOpen(): Observable<boolean> {
+    return this.isCartOpen;
   }
-
-  saveAllCartOnLocalStorage() {
-    localStorage.setItem('cartState', JSON.stringify(this.products))
-  }
-
-  getProducts() {
-    if(this.products.length === 0) {
-      let cartState: DetailProductDTO[] = JSON.parse(localStorage.getItem('cartState')!);
-      if(cartState) {
-        cartState.forEach(el => this.addProduct(el))
-      }
-    }
-    return this.products$
-  }
-
-  getCartOpening(): Observable<boolean> {
-    return this.currentCart;
-  }
-
-  setCartOpening(cartOpening: boolean) {
-    this.cartSubject.next(cartOpening);
+  // Si imposta al subject il nuovo stato della variabile booleana
+  setIsCartOpen(isCartOpen: boolean) {
+    this.isCartOpenSubject.next(isCartOpen);
   }
 
 
+  // Get che rilascia un Observable. Una volta sottoscritto, fornisce le informazioni aggiornate sull'ordine corrente.
+  getOrderInMemory(): Observable<CreateOrderRequest> {
+    return this.orderInMemoryObservable;
+  }
 }

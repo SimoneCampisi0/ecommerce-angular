@@ -24,7 +24,11 @@ export class ProductDetailComponent implements OnInit {
 
   radioSelected!: string
 
-  constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService, private productService: ProductService, private cartService: CartService) {}
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private sharedService: SharedService,
+              private productService: ProductService,
+              private cartService: CartService) {}
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -51,8 +55,10 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onAcquista() {
-    this.cartService.addProduct(this.productResponse);
-    this.cartService.setCartOpening(true);
+    // this.cartService.addProduct(this.productResponse);
+
+
+    this.cartService.setIsCartOpen(true);
   }
 
   @HostListener('window:popstate', ['$event'])
