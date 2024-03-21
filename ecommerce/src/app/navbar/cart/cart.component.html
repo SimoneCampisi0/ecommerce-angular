@@ -9,12 +9,12 @@
       <mat-card-header>
         <mat-card-title-group>
           <mat-card-title>{{ product.nomeProdotto }}</mat-card-title>
-          <mat-card-subtitle> {{ product.quantita }}</mat-card-subtitle>
+          <mat-card-subtitle>Q. {{ product.quantita }}</mat-card-subtitle>
           <img class="imgCartProduct" mat-card-sm-image src="{{ product.fistPhoto.url }}"  alt="">
         </mat-card-title-group>
       </mat-card-header>
       <mat-card-content>
-        {{ product.costoSingoloPerProdotto }}
+        {{ product.costoTotalePerProdotto }}
       </mat-card-content>
     </mat-card>
     <button mat-fab extended style="text-align: center;background-color: var(--primary-color)">

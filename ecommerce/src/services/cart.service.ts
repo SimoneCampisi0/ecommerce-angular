@@ -24,10 +24,12 @@ export class CartService {
 
 
   // Get che rilascia un Observable. Una volta sottoscritto, fornisce le informazioni aggiornate sull'ordine corrente.
+  // TODO: Qui deve prelevare il valore dal localStorage, se presente
   getOrderInMemory(): Observable<CreateOrderRequest> {
     return this.orderInMemoryObservable;
   }
 
+  //TODO: Qui, quando setta il valore, lo deve salvare nel localStorage
   setOrderInMemory(orderRequest: CreateOrderRequest) {
     console.log("setOrderInMemory: ", orderRequest)
     this.orderInMemorySubject.next(orderRequest);

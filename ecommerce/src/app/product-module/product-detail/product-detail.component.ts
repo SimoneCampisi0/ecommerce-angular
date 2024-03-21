@@ -7,6 +7,7 @@ import {CartService} from "../../../services/cart.service";
 import {CreateOrderForProductRequest} from "../../../dtos/CreateOrderForProductRequest";
 import {CreateOrderRequest} from "../../../dtos/CreateOrderRequest";
 import {StatusOrder} from "../../../dtos/enums/statusorder.enum";
+import {take} from "rxjs";
 
 @Component({
   selector: 'app-product-module-detail',
@@ -58,8 +59,8 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onAcquista() {
-    // this.cartService.addProduct(this.productResponse);
-    this.cartService.getOrderInMemory().subscribe(
+    // Con .pipe(take(1)) si emette soltanto un valore
+    this.cartService.getOrderInMemory().pipe(take(1)).subscribe(
       (orderInMemory) => {
         console.log("entro")
 
@@ -69,12 +70,16 @@ export class ProductDetailComponent implements OnInit {
           if(orderInMemory.orderForProduct.some((el) => el.idProduct === this.productResponse.idProduct)) {
             // orderForProductInMemory punta direttamente all'occorrenza individuata nell'array
             let orderForProductInMemory = orderInMemory.orderForProduct.find((el) => el.idProduct === this.productResponse.idProduct);
-            orderForProductInMemory!.quantita = Number(orderForProductInMemory!.quantita) + Number(this.actualQuantita);
-            orderForProductInMemory!.costoTotalePerProdotto = orderForProductInMemory!.costoSingoloPerProdotto * orderForProductInMemory!.quantita;
+
+            let quant = Number(orderForProductInMemory!.quantita) + Number(this.actualQuantita)
+            orderForProductInMemory!.quantita = Number(quant.toFixed(3))
+
+            let costoTotale = orderForProductInMemory!.costoSingoloPerProdotto * orderForProductInMemory!.quantita
+            orderForProductInMemory!.costoTotalePerProdotto = Number(costoTotale.toFixed(3));
           } else {
               let orderForProductRequest: CreateOrderForProductRequest = new CreateOrderForProductRequest(
-                this.productResponse.productCost,
-                this.productResponse.productCost,
+                Number(this.productResponse.productCost.toFixed(3)),
+                Number(this.productResponse.productCost.toFixed(3)),
                 this.actualQuantita,
                 this.productResponse.idProduct,
                 this.productResponse.photoResponses[0],
@@ -84,15 +89,14 @@ export class ProductDetailComponent implements OnInit {
           }
         } else { // Se non esiste l'ordine
           let orderForProductRequest: CreateOrderForProductRequest = new CreateOrderForProductRequest(
-            this.productResponse.productCost,
-            this.productResponse.productCost,
+            Number(this.productResponse.productCost.toFixed(3)),
+            Number(this.productResponse.productCost.toFixed(3)),
             this.actualQuantita,
             this.productResponse.idProduct,
             this.productResponse.photoResponses[0],
             this.productResponse.productName
           );
 
-          console.log("quantita: ", orderForProductRequest.quantita)
           let orderRequest = new CreateOrderRequest(orderForProductRequest.costoTotalePerProdotto,
             new Date(),
             StatusOrder.PRESO_IN_CARICO,
