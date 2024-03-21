@@ -27,4 +27,9 @@ export class CartService {
   getOrderInMemory(): Observable<CreateOrderRequest> {
     return this.orderInMemoryObservable;
   }
+
+  setOrderInMemory(orderRequest: CreateOrderRequest) {
+    console.log("setOrderInMemory: ", orderRequest)
+    this.orderInMemorySubject.next(orderRequest);
+  }
 }

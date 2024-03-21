@@ -33,3 +33,10 @@
 .cartProduct {
   margin-bottom: 1em;
 }
+
+.mat-icon {
+  transition-duration: 0.2s;
+}
+.mat-icon:hover {
+  color: white;
+}

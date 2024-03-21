@@ -4,6 +4,9 @@ import {SharedService} from "../../../services/shared.service";
 import {ProductService} from "../../../services/product.service";
 import {DetailProductDTO} from "../../../dtos/DetailProductDTO";
 import {CartService} from "../../../services/cart.service";
+import {CreateOrderForProductRequest} from "../../../dtos/CreateOrderForProductRequest";
+import {CreateOrderRequest} from "../../../dtos/CreateOrderRequest";
+import {StatusOrder} from "../../../dtos/enums/statusorder.enum";
 
 @Component({
   selector: 'app-product-module-detail',
@@ -56,6 +59,51 @@ export class ProductDetailComponent implements OnInit {
 
   onAcquista() {
     // this.cartService.addProduct(this.productResponse);
+    this.cartService.getOrderInMemory().subscribe(
+      (orderInMemory) => {
+        console.log("entro")
+
+        // Se esiste già un ordine
+        if(orderInMemory) {
+          // Se esiste già il Product per l'ordine, allora ne incrementa la quantità e il costoTotale, altrimenti ne crea uno nuovo
+          if(orderInMemory.orderForProduct.some((el) => el.idProduct === this.productResponse.idProduct)) {
+            // orderForProductInMemory punta direttamente all'occorrenza individuata nell'array
+            let orderForProductInMemory = orderInMemory.orderForProduct.find((el) => el.idProduct === this.productResponse.idProduct);
+            orderForProductInMemory!.quantita = Number(orderForProductInMemory!.quantita) + Number(this.actualQuantita);
+            orderForProductInMemory!.costoTotalePerProdotto = orderForProductInMemory!.costoSingoloPerProdotto * orderForProductInMemory!.quantita;
+          } else {
+              let orderForProductRequest: CreateOrderForProductRequest = new CreateOrderForProductRequest(
+                this.productResponse.productCost,
+                this.productResponse.productCost,
+                this.actualQuantita,
+                this.productResponse.idProduct,
+                this.productResponse.photoResponses[0],
+                this.productResponse.productName
+              );
+              orderInMemory.orderForProduct.push(orderForProductRequest);
+          }
+        } else { // Se non esiste l'ordine
+          let orderForProductRequest: CreateOrderForProductRequest = new CreateOrderForProductRequest(
+            this.productResponse.productCost,
+            this.productResponse.productCost,
+            this.actualQuantita,
+            this.productResponse.idProduct,
+            this.productResponse.photoResponses[0],
+            this.productResponse.productName
+          );
+
+          console.log("quantita: ", orderForProductRequest.quantita)
+          let orderRequest = new CreateOrderRequest(orderForProductRequest.costoTotalePerProdotto,
+            new Date(),
+            StatusOrder.PRESO_IN_CARICO,
+            [orderForProductRequest]
+            )
+
+          this.cartService.setOrderInMemory(orderRequest);
+        }
+
+      }
+    )
 
 
     this.cartService.setIsCartOpen(true);

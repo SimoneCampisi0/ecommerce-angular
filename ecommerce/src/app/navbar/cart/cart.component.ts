@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {DetailProductDTO} from "../../../dtos/DetailProductDTO";
-import {Observable} from "rxjs";
 import {CartService} from "../../../services/cart.service";
 import {CreateOrderRequest} from "../../../dtos/CreateOrderRequest";
 import {CreateOrderForProductRequest} from "../../../dtos/CreateOrderForProductRequest";
@@ -10,7 +8,7 @@ import {CreateOrderForProductRequest} from "../../../dtos/CreateOrderForProductR
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
-export class CartComponent implements OnInit{
+export class CartComponent implements OnInit {
   // Definisce se il carrello è aperto o meno
   isCartOpen!: boolean
 
