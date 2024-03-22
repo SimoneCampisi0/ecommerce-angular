@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CartService} from "../../../services/cart.service";
 import {CreateOrderRequest} from "../../../dtos/CreateOrderRequest";
 import {CreateOrderForProductRequest} from "../../../dtos/CreateOrderForProductRequest";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'app-cart',
@@ -38,11 +39,19 @@ export class CartComponent implements OnInit {
             this.orderProducts = orderInMemory.orderForProduct
           }
         }
+        localStorage.setItem('cartOrder', JSON.stringify(this.order))
       }
     )
   }
 
+  //TODO: fixare questo
   showMenu() {
+    if(this.isCartOpen) {
+      if(localStorage.getItem('cartOrder')) {
+        this.order = JSON.parse(localStorage.getItem('cartOrder')!)
+        this.orderProducts = this.order.orderForProduct
+      }
+    }
     this.cartService.setIsCartOpen(!this.isCartOpen)
   }
 

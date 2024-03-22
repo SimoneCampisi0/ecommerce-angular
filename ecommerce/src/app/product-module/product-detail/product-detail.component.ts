@@ -76,6 +76,8 @@ export class ProductDetailComponent implements OnInit {
 
             let costoTotale = orderForProductInMemory!.costoSingoloPerProdotto * orderForProductInMemory!.quantita
             orderForProductInMemory!.costoTotalePerProdotto = Number(costoTotale.toFixed(3));
+
+            localStorage.setItem('cartOrder', JSON.stringify(orderForProductInMemory))
           } else {
               let orderForProductRequest: CreateOrderForProductRequest = new CreateOrderForProductRequest(
                 Number(this.productResponse.productCost.toFixed(3)),
@@ -86,6 +88,7 @@ export class ProductDetailComponent implements OnInit {
                 this.productResponse.productName
               );
               orderInMemory.orderForProduct.push(orderForProductRequest);
+              localStorage.setItem('cartOrder', JSON.stringify(orderInMemory))
           }
         } else { // Se non esiste l'ordine
           let orderForProductRequest: CreateOrderForProductRequest = new CreateOrderForProductRequest(
@@ -103,6 +106,7 @@ export class ProductDetailComponent implements OnInit {
             [orderForProductRequest]
             )
 
+          localStorage.setItem('cartOrder', JSON.stringify(orderRequest))
           this.cartService.setOrderInMemory(orderRequest);
         }
 
