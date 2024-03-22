@@ -19,7 +19,7 @@
       </select>
 
       <!--    <div class="colore" *ngIf="productResponse.type === 'dress'">-->
-      <div class="colore">
+      <div class="colore" *ngIf="productResponse.colorsResponse.length !== 0">
         <div class="coloreText"> <b> Colore </b></div>
         <div class="coloreRadio">
           <div *ngFor="let color of productResponse.colorsResponse">
