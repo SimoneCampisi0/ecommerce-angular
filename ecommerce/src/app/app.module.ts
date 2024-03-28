@@ -19,7 +19,7 @@ import {CartComponent} from "./navbar/cart/cart.component";
 import {
   MatCard,
   MatCardContent,
-  MatCardHeader, MatCardImage, MatCardSmImage,
+  MatCardHeader, MatCardSmImage,
   MatCardSubtitle,
   MatCardTitle,
   MatCardTitleGroup

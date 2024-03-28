@@ -7,7 +7,6 @@ import {CartService} from "../../../services/cart.service";
 import {CreateOrderForProductRequest} from "../../../dtos/CreateOrderForProductRequest";
 import {CreateOrderRequest} from "../../../dtos/CreateOrderRequest";
 import {StatusOrder} from "../../../dtos/enums/statusorder.enum";
-import {take} from "rxjs";
 
 @Component({
   selector: 'app-product-module-detail',

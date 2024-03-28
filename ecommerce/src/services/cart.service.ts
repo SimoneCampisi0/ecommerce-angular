@@ -1,10 +1,10 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject, Observable} from "rxjs";
-import {CreateOrderRequest} from "../dtos/CreateOrderRequest";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
   private isCartOpenSubject = new BehaviorSubject(false);
   isCartOpen = this.isCartOpenSubject.asObservable();

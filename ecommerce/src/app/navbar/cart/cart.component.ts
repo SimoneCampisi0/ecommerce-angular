@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {CartService} from "../../../services/cart.service";
 import {CreateOrderRequest} from "../../../dtos/CreateOrderRequest";
 import {CreateOrderForProductRequest} from "../../../dtos/CreateOrderForProductRequest";
-import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'app-cart',
