@@ -9,4 +9,5 @@ export class CreateOrderRequest extends AbstractOrderRequest {
               orderForProduct: CreateOrderForProductRequest[]) {
     super(costoTotale, dataOrdine, statusOrdine, orderForProduct);
   }
+
 }

@@ -4,7 +4,12 @@
 
 <div class="cartMenu" *ngIf="this.cartService.getIsCartOpen() | async">
   <div *ngIf="orderProducts?.length! > 0">
-    <div class="cartTitle">Carrello:</div>
+
+    <div class="row-acquista-trash">
+      <div class="cartTitle">Carrello:</div>
+      <mat-icon class="delete" (click)="deleteCart()">delete</mat-icon>
+    </div>
+
     <mat-card *ngFor="let product of orderProducts" class="cartProduct">
       <mat-card-header>
         <mat-card-title-group>
@@ -17,13 +22,16 @@
         {{ product.costoTotalePerProdotto }}
       </mat-card-content>
     </mat-card>
+
     <button mat-fab extended style="text-align: center;background-color: var(--primary-color)">
       <mat-icon>payments</mat-icon>
       Acquista
     </button>
+
+
   </div>
 
-  <div class="empty" *ngIf="orderProducts?.length === 0">
+  <div class="empty" *ngIf="orderProducts?.length === 0 || order === undefined || orderProducts === undefined">
     Carrello vuoto
   </div>
 

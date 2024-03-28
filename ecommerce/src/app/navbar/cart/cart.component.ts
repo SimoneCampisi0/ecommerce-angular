@@ -13,8 +13,8 @@ export class CartComponent implements OnInit {
   isCartOpen!: boolean
 
   // Riceve il macro-ordine dal service.
-  order!: CreateOrderRequest;
-  orderProducts: CreateOrderForProductRequest[] = []
+  order!: CreateOrderRequest | undefined;
+  orderProducts: CreateOrderForProductRequest[] | undefined = []
   constructor(protected cartService: CartService) {}
 
   ngOnInit() { // Lo stato del carrello ora si aggiorna soltanto con il localStorage. Utilizzare gli Observable
@@ -41,8 +41,16 @@ export class CartComponent implements OnInit {
       if (orderInMemory.orderForProduct) {
         this.orderProducts = orderInMemory.orderForProduct
       }
+    } else {
+      this.order = undefined;
+      this.orderProducts = undefined
     }
 
+  }
+
+  deleteCart() {
+    localStorage.removeItem('cartOrder');
+    this.cartService.notifyChangesOnCart(false);
   }
 
 }

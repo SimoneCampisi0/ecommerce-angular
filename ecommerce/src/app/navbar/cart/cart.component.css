@@ -23,7 +23,6 @@
 .cartTitle {
   font-size: 1.5em;
   font-weight: 600;
-  margin-bottom: 0.5em;
 }
 
 .imgCartProduct {
@@ -37,6 +36,23 @@
 .mat-icon {
   transition-duration: 0.2s;
 }
+
+.mat-icon.delete {
+  cursor: pointer;
+}
+
+.row-acquista-trash {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
 .mat-icon:hover {
   color: white;
+}
+
+.mat-icon.delete:hover {
+  color: red;
 }
