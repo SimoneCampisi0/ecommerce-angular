@@ -9,9 +9,8 @@ export class CartService {
   private isCartOpenSubject = new BehaviorSubject(false);
   isCartOpen = this.isCartOpenSubject.asObservable();
 
-  private orderInMemory!: CreateOrderRequest
-  private orderInMemorySubject = new BehaviorSubject(this.orderInMemory)
-  orderInMemoryObservable = this.orderInMemorySubject.asObservable();
+  private isChangesOnCartSubject = new BehaviorSubject(false);
+  isChangesOnCart = this.isChangesOnCartSubject.asObservable();
 
   // Ritorna isCartOpenSubject come Observable, in modo da poter essere sottoscritto nei vari componenti
   getIsCartOpen(): Observable<boolean> {
@@ -22,16 +21,12 @@ export class CartService {
     this.isCartOpenSubject.next(isCartOpen);
   }
 
-
-  // Get che rilascia un Observable. Una volta sottoscritto, fornisce le informazioni aggiornate sull'ordine corrente.
-  // TODO: Qui deve prelevare il valore dal localStorage, se presente
-  getOrderInMemory(): Observable<CreateOrderRequest> {
-    return this.orderInMemoryObservable;
+  checkChangesOnChart() {
+    return this.isChangesOnCart;
   }
 
-  //TODO: Qui, quando setta il valore, lo deve salvare nel localStorage
-  setOrderInMemory(orderRequest: CreateOrderRequest) {
-    console.log("setOrderInMemory: ", orderRequest)
-    this.orderInMemorySubject.next(orderRequest);
+  notifyChangesOnCart(changes: boolean) {
+    this.isChangesOnCartSubject.next(changes);
   }
+
 }

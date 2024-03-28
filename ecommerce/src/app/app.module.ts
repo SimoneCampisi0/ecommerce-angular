@@ -60,6 +60,7 @@ import {MatFabButton} from "@angular/material/button";
       useClass: JwtInterceptor,
       multi: true
     },
+    { provide: Window, useValue: window },
     provideAnimationsAsync()
   ],
   exports: [
