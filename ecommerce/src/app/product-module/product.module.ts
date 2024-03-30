@@ -9,6 +9,7 @@ import {ProductDetailDescriptionComponent} from "./product-detail-description/pr
 import {RouterOutlet} from "@angular/router";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
+import {MatPaginator} from "@angular/material/paginator";
 
 
 
@@ -22,14 +23,15 @@ import {MatTab, MatTabGroup} from "@angular/material/tabs";
   exports: [
     ProductViewComponent
   ],
-  imports: [
-    CommonModule,
-    ShortenPipe,
-    FormsModule,
-    RouterOutlet,
-    MatSlideToggle,
-    MatTabGroup,
-    MatTab
-  ]
+    imports: [
+        CommonModule,
+        ShortenPipe,
+        FormsModule,
+        RouterOutlet,
+        MatSlideToggle,
+        MatTabGroup,
+        MatTab,
+        MatPaginator
+    ]
 })
 export class ProductModule { }

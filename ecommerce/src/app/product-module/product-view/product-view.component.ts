@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SortingOrder} from "../../../dtos/enums/sorting.order";
 import {ViewProductDTO} from "../../../dtos/ViewProductDTO";
 import {ProductService} from "../../../services/product.service";
+import {Page} from "../../../dtos/abstract/Page";
 
 @Component({
   selector: 'app-product-module-view',
@@ -22,10 +23,20 @@ export class ProductViewComponent implements OnInit {
 
   productList: ViewProductDTO[] = []
 
+  paginatorResponse!: Page<ViewProductDTO>
+
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
     // this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter).subscribe({
+
+    this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter).subscribe({
+      next:(response) => {
+        this.paginatorResponse = response
+        this.productList = response.content
+      }
+    })
+
     this.productService.getProducts().subscribe({
       next:(response) => {
         // this.productList = response.content

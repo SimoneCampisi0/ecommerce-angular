@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {ViewProductDTO} from "../dtos/ViewProductDTO";
 import {SortingOrder} from "../dtos/enums/sorting.order";
 import {DetailProductDTO} from "../dtos/DetailProductDTO";
+import {Page} from "../dtos/abstract/Page";
 
 @Injectable({
   providedIn: 'root'
@@ -17,14 +18,14 @@ export class ProductService {
                         pageSize: number,
                         sortBy: string,
                         sortingOrder: SortingOrder,
-                        sortingFilter: string): Observable<any>{
+                        sortingFilter: string): Observable<Page<ViewProductDTO>>{
     let url
 
     if(sortingFilter != '') {
-      url = 'http://localhost:8080/orders/products?pageNumber='+pageNumber+'&pageSize='+pageSize+'&sortBy='+sortBy+'&sortingOrder='+sortingOrder+'&sortingFilter='+sortingFilter
+      url = 'http://localhost:8080/orders/products/lista-prodotti-paginata?pageNumber='+pageNumber+'&pageSize='+pageSize+'&sortBy='+sortBy+'&sortingOrder='+sortingOrder+'&sortingFilter='+sortingFilter
       console.log("url: "+url)
     } else {
-      url = 'http://localhost:8080/orders/products?pageNumber='+pageNumber+'&pageSize='+pageSize+'&sortBy='+sortBy+'&sortingOrder='+sortingOrder
+      url = 'http://localhost:8080/orders/products/lista-prodotti-paginata?pageNumber='+pageNumber+'&pageSize='+pageSize+'&sortBy='+sortBy+'&sortingOrder='+sortingOrder
       console.log("url: "+url)
 
     }
