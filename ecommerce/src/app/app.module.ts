@@ -25,7 +25,6 @@ import {
   MatCardTitleGroup
 } from "@angular/material/card";
 import {MatFabButton} from "@angular/material/button";
-import {PaginatorComponent} from "./shared/paginator/paginator.component";
 
 @NgModule({
   declarations: [
