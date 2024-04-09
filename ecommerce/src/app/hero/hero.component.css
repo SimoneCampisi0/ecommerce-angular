@@ -15,7 +15,7 @@ h1 {
 .hero-all {
   /*margin-top: 1.5em;*/
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/hero-example-0.jpg");
-  width: 100vw;
+  width: auto;
   height: 60vh;
 
   background-position: center;

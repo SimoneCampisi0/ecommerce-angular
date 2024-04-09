@@ -1,0 +1,30 @@
+.pagination {
+  margin-right: 4em;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+}
+
+.pagination-element {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.pagination-element a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.active-page {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}

@@ -2,14 +2,14 @@
   <app-product-module *ngFor="let product of productList" [idProduct]="product.idProduct" [titolo]="product.productName" [avaiable]="product.available" [costoTotale]="product.productCost" [urlImg]="product.firstPhotoResponse.url"></app-product-module>
 </div>
 
-<div *ngIf="paginatorResponse">
+<div *ngIf="paginatorResponse && productList.length !== 0">
 
   <!--  TODO: aggiungere logica al paginaror -->
-  <mat-paginator [length]="paginatorResponse.totalPages"
-                 [pageSize]="paginatorResponse.totalElements"
-                 [pageSizeOptions]="[5, 10, 25, 100]"
-                 aria-label="Select page">
-  </mat-paginator>
+  <app-paginator [currentPage]="paginatorResponse.pageable.pageNumber"
+                 [totalPages]="paginatorResponse.totalPages"
+                 [totalElements]="paginatorResponse.totalElements"
+                 (nextPage)=changePage($event)>
+  </app-paginator>
 </div>
 
 <div class="no-product-warn" *ngIf="productList.length === 0">

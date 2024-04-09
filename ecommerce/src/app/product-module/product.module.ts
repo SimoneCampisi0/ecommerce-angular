@@ -10,6 +10,7 @@ import {RouterOutlet} from "@angular/router";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
 import {MatPaginator} from "@angular/material/paginator";
+import {SharedModule} from "../shared/shared.module";
 
 
 
@@ -23,15 +24,16 @@ import {MatPaginator} from "@angular/material/paginator";
   exports: [
     ProductViewComponent
   ],
-    imports: [
-        CommonModule,
-        ShortenPipe,
-        FormsModule,
-        RouterOutlet,
-        MatSlideToggle,
-        MatTabGroup,
-        MatTab,
-        MatPaginator
-    ]
+  imports: [
+    CommonModule,
+    ShortenPipe,
+    FormsModule,
+    RouterOutlet,
+    MatSlideToggle,
+    MatTabGroup,
+    MatTab,
+    MatPaginator,
+    SharedModule
+  ]
 })
 export class ProductModule { }

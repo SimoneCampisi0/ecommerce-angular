@@ -28,20 +28,18 @@ export class ProductViewComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    // this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter).subscribe({
-
     this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter).subscribe({
       next:(response) => {
         this.paginatorResponse = response
         this.productList = response.content
-      }
-    })
+        console.log("productList: ", this.productList)
 
-    this.productService.getProducts().subscribe({
-      next:(response) => {
-        // this.productList = response.content
-        this.productList = response
+        console.log("this.paginatorResponse: ", this.paginatorResponse)
       }
     })
+  }
+
+  changePage(page: number) { // TODO: associare la pagina che viene selezionata all'API che ritorna la nuova Page
+
   }
 }
