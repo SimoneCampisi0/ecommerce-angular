@@ -16,14 +16,7 @@ export class PaginatorComponent implements OnInit{
   numberOfVisiblePages: number = 5;
 
   ngOnInit() {
-    this.updateVisiblePages()
-    this.printAll()
-  }
-
-  printAll() {
-    console.log("currentPage: ", this.currentPage)
-    console.log("totalPages: ", this.totalPages)
-    console.log("totalElements: ", this.totalElements)
+    this.updateVisiblePages();
   }
 
   /* Calcola le pagine precedenti e successive alla pagina corrente.
@@ -42,11 +35,10 @@ export class PaginatorComponent implements OnInit{
   }
 
   changePage(pageToChange: number) {
-    console.log("pageToChange: ", pageToChange)
-    this.currentPage = pageToChange;
+    this.currentPage = pageToChange - 1;
     this.updateVisiblePages();
+
     this.nextPage.emit(this.currentPage)
-    this.printAll()
   }
 
 

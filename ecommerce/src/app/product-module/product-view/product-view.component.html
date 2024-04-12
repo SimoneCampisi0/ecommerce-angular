@@ -8,7 +8,7 @@
   <app-paginator [currentPage]="paginatorResponse.pageable.pageNumber"
                  [totalPages]="paginatorResponse.totalPages"
                  [totalElements]="paginatorResponse.totalElements"
-                 (nextPage)=changePage($event)>
+                 (nextPage)=changePageAndCallAPI($event)>
   </app-paginator>
 </div>
 

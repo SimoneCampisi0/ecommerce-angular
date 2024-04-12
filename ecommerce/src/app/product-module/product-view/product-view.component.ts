@@ -39,7 +39,16 @@ export class ProductViewComponent implements OnInit {
     })
   }
 
-  changePage(page: number) { // TODO: associare la pagina che viene selezionata all'API che ritorna la nuova Page
-
+  changePageAndCallAPI(page: number) {
+    this.pageNumber = page;
+    this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter)
+      .subscribe(
+        {
+          next: (response) => {
+            this.paginatorResponse = response;
+            this.productList = response.content
+          }
+        }
+      )
   }
 }
