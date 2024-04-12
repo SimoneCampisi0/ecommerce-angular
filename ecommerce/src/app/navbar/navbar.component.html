@@ -1,7 +1,16 @@
 <div class="all">
-    <img class="logo" src="../../assets/logo/logo_black.png" alt="" srcset="" (click)="cambiaPagina('home')">
+  <img class="logo" src="../../assets/logo/logo_black.png" alt="" srcset="" (click)="cambiaPagina('home')">
+
+
 
   <div class="subCategory">
+    <div class="search-container" [ngClass]="{'active' : searchText != ''}">
+      <input [(ngModel)]="searchText" (input)="filterValue()" type="text" name="search" placeholder="Cerca un prodotto..." class="search-input">
+      <a class="search-btn">
+        <mat-icon style="color: black; cursor: default">search</mat-icon>
+      </a>
+    </div>
+
     <div class="drop1" *ngIf="this.username; else notLogged">
       <span class="user" >Ciao, <div class="nomeUtente">{{ username }}</div></span>
 
@@ -16,15 +25,7 @@
       <div class="user" (click)="cambiaPagina('login')">Accedi</div>
     </ng-template>
 
-<!--    <div class="cart">CART</div>-->
     <app-cart></app-cart>
   </div>
-
-<!--  <ul class="menu-flex">-->
-<!--    <li class="flex-item"><a class="menu-item" routerLink="/home" routerLinkActive="active" (click)="cambiaPagina('home')">Home</a></li>-->
-<!--    <li class="flex-item"><a class="menu-item" routerLink="/chi-sono" routerLinkActive="active" (click)="cambiaPagina('chi-sono')">Chi sono</a></li>-->
-<!--    <li class="flex-item"><a class="menu-item" routerLink="/progetti" routerLinkActive="active">Progetti</a></li>-->
-<!--    <li class="flex-item"><a class="menu-item" routerLink="/contattami" routerLinkActive="active">Contattami</a></li>-->
-<!--  </ul>-->
 </div>
 

@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {UserResponse} from "../../dtos/UserResponse";
 import {SharedService} from "../../services/shared.service";
+import {ProductService} from "../../services/product.service";
+import {SortingOrder} from "../../dtos/enums/sorting.order";
 
 @Component({
   selector: 'app-navbar',
@@ -11,8 +13,8 @@ import {SharedService} from "../../services/shared.service";
 })
 export class NavbarComponent implements OnInit {
   username!: string;
-
-  constructor(private router: Router, private authService: AuthService, private sharedService: SharedService) {}
+  searchText!: string
+  constructor(private router: Router, private productService: ProductService, private authService: AuthService, private sharedService: SharedService) {}
 
   ngOnInit() {
     // @ts-ignore
@@ -34,6 +36,14 @@ export class NavbarComponent implements OnInit {
       this.sharedService.changeSelectedProduct(false)
     }
     this.router.navigate([pagina])
+  }
+
+  filterValue() {
+    if(this.searchText) {
+      console.log("searchText: " + this.searchText)
+      this.productService.setSortingFilter(this.searchText)
+      this.productService.doQueryPaginatedList(0, 5, "productName", SortingOrder.ASC)
+    }
   }
 
   logout() {

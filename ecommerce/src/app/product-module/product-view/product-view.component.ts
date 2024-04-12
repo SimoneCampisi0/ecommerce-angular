@@ -19,8 +19,6 @@ export class ProductViewComponent implements OnInit {
 
   sortingOrder: SortingOrder = SortingOrder.ASC
 
-  sortingFilter: string = ""
-
   productList: ViewProductDTO[] = []
 
   paginatorResponse!: Page<ViewProductDTO>
@@ -28,27 +26,25 @@ export class ProductViewComponent implements OnInit {
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter).subscribe({
-      next:(response) => {
-        this.paginatorResponse = response
-        this.productList = response.content
-        console.log("productList: ", this.productList)
+    this.productService.setSortingFilter('')
+    this.productService.doQueryPaginatedList(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder); // effettua la query
+    this.productService.productsUpdatedListener() // Essendo un listener, riceve sempre i prodotti aggiornati
+      .subscribe({
+        next:(response) => {
+          this.paginatorResponse = response;
+          this.productList = response.content
 
-        console.log("this.paginatorResponse: ", this.paginatorResponse)
-      }
-    })
+          console.log("response: ", response)
+              console.log("productList: ", this.productList)
+              console.log("this.paginatorResponse: ", this.paginatorResponse)
+
+        }
+      })
   }
 
   changePageAndCallAPI(page: number) {
     this.pageNumber = page;
-    this.productService.listaProdottiPaginata(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder, this.sortingFilter)
-      .subscribe(
-        {
-          next: (response) => {
-            this.paginatorResponse = response;
-            this.productList = response.content
-          }
-        }
-      )
+    this.productService.doQueryPaginatedList(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder); // effettua la query
+
   }
 }
