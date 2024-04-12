@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CartService} from "../../../services/cart.service";
 import {CreateOrderRequest} from "../../../dtos/CreateOrderRequest";
 import {CreateOrderForProductRequest} from "../../../dtos/CreateOrderForProductRequest";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-cart',
@@ -15,6 +16,8 @@ export class CartComponent implements OnInit {
   // Riceve il macro-ordine dal service.
   order!: CreateOrderRequest | undefined;
   orderProducts: CreateOrderForProductRequest[] | undefined = []
+
+
   constructor(protected cartService: CartService) {}
 
   ngOnInit() { // Lo stato del carrello ora si aggiorna soltanto con il localStorage. Utilizzare gli Observable
@@ -46,6 +49,17 @@ export class CartComponent implements OnInit {
       this.orderProducts = undefined
     }
 
+  }
+
+  doPurchase() {
+    Swal.fire({
+      title: "Acquisto completato",
+      text: "Il tuo acquisto è andato a buon fine!",
+      icon: "success"
+    });
+
+    this.deleteCart();
+    this.showMenu();
   }
 
   deleteCart() {

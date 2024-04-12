@@ -1,10 +1,12 @@
 <div class="pagination">
-  <a (click)="changePage(1)" class="pagination-element-arrow"> < </a>
-  <div *ngFor="let page of visiblePages" class="pagination-element">
-    <a (click)="changePage(page)"
-       [ngClass]="{'active-page': page === (currentPage+1)}">
-      {{ page }}
-    </a>
+  <div class="pagination-box">
+    <a (click)="changePage(1)" class="pagination-element-arrow"> < </a>
+    <div *ngFor="let page of visiblePages" class="pagination-element">
+      <a (click)="changePage(page)"
+         [ngClass]="{'active-page': page === (currentPage+1)}">
+        {{ page }}
+      </a>
+    </div>
+    <a (click)="changePage(this.totalPages)" class="pagination-element-arrow"> > </a>
   </div>
-  <a (click)="changePage(this.totalPages)" class="pagination-element-arrow"> > </a>
 </div>

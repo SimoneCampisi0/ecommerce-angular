@@ -7,6 +7,15 @@
   justify-content: right;
 }
 
+.pagination-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #d8d8d8;
+  padding: 0.3em;
+  border-radius: 10px;
+}
+
 .pagination-element {
   cursor: pointer;
   display: inline-block;
@@ -33,17 +42,18 @@
 
 .active-page {
   background-color: var(--primary-color);
-  color: white;
+  color: white !important;
   border-radius: 50%;
   margin: 0.2em;
 }
 
-a:hover {
-  background-color: var(--primary-color);
-  color: white;
+.pagination-element:hover a {
+  background-color: var(--primary-color) !important;
+  color: white !important;
   border-radius: 50%;
   margin: 0.2em;
 }
+
 
 @media screen and (max-width: 1000px) {
   .pagination {
