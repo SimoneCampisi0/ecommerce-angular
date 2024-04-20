@@ -39,11 +39,8 @@ export class NavbarComponent implements OnInit {
   }
 
   filterValue() {
-    if(this.searchText) {
-      console.log("searchText: " + this.searchText)
-      this.productService.setSortingFilter(this.searchText)
-      this.productService.doQueryPaginatedList(0, 5, "productName", SortingOrder.ASC)
-    }
+    this.productService.setSortingFilter(this.searchText)
+    this.productService.doQueryPaginatedList(0, 5, "productName", SortingOrder.ASC)
   }
 
   logout() {

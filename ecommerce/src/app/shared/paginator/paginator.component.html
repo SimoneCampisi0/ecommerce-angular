@@ -1,4 +1,4 @@
-<div class="pagination">
+<div class="pagination" *ngIf="totalPages > 1">
   <div class="pagination-box">
     <a (click)="changePage(1)" class="pagination-element-arrow"> < </a>
     <div *ngFor="let page of visiblePages" class="pagination-element">
