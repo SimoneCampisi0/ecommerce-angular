@@ -25,6 +25,7 @@ import {
   MatCardTitleGroup
 } from "@angular/material/card";
 import {MatFabButton} from "@angular/material/button";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {MatFabButton} from "@angular/material/button";
     MatCardSubtitle,
     MatCardTitle,
     MatCardSmImage,
-    MatFabButton
+    MatFabButton,
+    SharedModule
   ],
   providers: [
     {
