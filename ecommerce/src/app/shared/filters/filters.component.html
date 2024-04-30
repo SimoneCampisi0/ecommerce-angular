@@ -1,14 +1,25 @@
-<div class="filters-label">
-  <div class="sortingOrder-label">
-    Ordine
+<div class="filtersLabel">
+
+  <div class="group">
+    <div class="label"> Ordina per </div>
+    <div class="select-div">
+      <select (change)="onSelectionChange($event)">
+        <option selected value="0">Nome prodotto</option>
+        <option value="1">Quantità</option>
+      </select>
+    </div>
   </div>
+
+  <div class="group">
+    <div class="label"> Prezzo </div>
+    <div class="select-div">
+<!--     TODO: inserire slicer per il costo
+         Modificare la select in precedenza. Le option non possono essere modificate direttamente,
+         poiché dipendenti dal sistema operativo.
+         Utilizzare una dropdown e eseguire il binding del click di una voce del dropdown con la chiamata API.
+          -->
+    </div>
+  </div>
+
 </div>
 
-<div class="filters-group">
-  <div class="sortingOrder">
-    <select (change)="onSelectionChange($event)">
-      <option selected value="0">ASC</option>
-      <option value="1">DESC</option>
-    </select>
-  </div>
-</div>
