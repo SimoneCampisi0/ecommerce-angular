@@ -1,6 +1,7 @@
 .filtersLabel {
+  gap: 2em;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   margin-left: 2em;
   margin-top: 1em;
@@ -16,12 +17,13 @@
   font-size: 1.2em;
 }
 
-.select-div > select {
-  padding: 1em;
-  border-radius: 10px;
-  margin-top: 1em;
-}
+/*Stile select classico, senza Material*/
+/*.select-div > select {*/
+/*  padding: 1em;*/
+/*  border-radius: 10px;*/
+/*  margin-top: 1em;*/
+/*}*/
 
-option {
-  height: 1em;
-}
+/*option {*/
+/*  height: 1em;*/
+/*}*/

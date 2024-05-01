@@ -1,0 +1,83 @@
+@use '@angular/material' as mat;
+
+$primary-color: #5F9EA0;
+
+:root {
+  --primary-color: #{$primary-color};
+}
+
+body {
+  margin: 0;
+  font-family: 'UlagadiSansRegular';
+
+  @font-face {
+    font-family: 'UlagadiSansRegular';
+    src: url('/ecommerce/src/assets/fonts/ulagadi/UlagadiSansRegular.ttf');
+  }
+}
+
+// @font-face {
+//   font-family: 'WoodlandBold';
+//   src: url('/assets/fonts/PPWoodland-Bold.otf');
+// }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Palette generata con http://mcg.mbitson.com/#!?mcgpalette0=%235f9ea0
+$custom-primary-palette: (
+  50: #ECF3F4,
+  100: #CFE2E3,
+  200: #AFCFD0,
+  300: #8FBBBD,
+  400: #77ADAE,
+  500: $primary-color, // colore utilizzato in focused
+  600: #579698,
+  700: #4D8C8E,
+  800: #438284,
+  900: #327073,
+  A100: #BFFCFF,
+  A200: #8CFAFF,
+  A400: #59F7FF,
+  A700: #40F6FF,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  )
+);
+
+$custom-primary: mat.define-palette($custom-primary-palette);
+$custom-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$custom-warn: mat.define-palette(mat.$red-palette);
+
+$custom-theme: mat.define-light-theme(
+    (
+      color: (
+        primary: $custom-primary,
+        accent: $custom-accent,
+        warn: $custom-warn,
+      ),
+    )
+);
+
+@include mat.all-component-themes($custom-theme);
+
+// Stili custom classi Material:
+.mat-mdc-text-field-wrapper {
+  box-shadow:  0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}

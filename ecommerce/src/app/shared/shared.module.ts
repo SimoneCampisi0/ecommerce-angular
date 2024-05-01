@@ -4,6 +4,7 @@ import {PaginatorComponent} from "./paginator/paginator.component";
 import {FiltersComponent} from "./filters/filters.component";
 import {MatFormField, MatLabel, MatOption, MatSelect} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
+import {MatSlider, MatSliderRangeThumb, MatSliderThumb} from "@angular/material/slider";
 
 
 
@@ -18,7 +19,10 @@ import {FormsModule} from "@angular/forms";
     FormsModule,
     MatOption,
     MatLabel,
-    MatFormField
+    MatFormField,
+    MatSlider,
+    MatSliderRangeThumb,
+    MatSliderThumb
   ],
   exports: [
     PaginatorComponent,

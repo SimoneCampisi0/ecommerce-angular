@@ -20,4 +20,12 @@ export class FiltersComponent implements OnInit{
     this.selectedOrder = event.target.value;
     console.log("valore emesso: ", this.selectedOrder)
   }
+
+  formatLabel(value: number): string {
+    if (value >= 1000) {
+      return Math.round(value / 1000)+"";
+    }
+
+    return `${value}`;
+  }
 }

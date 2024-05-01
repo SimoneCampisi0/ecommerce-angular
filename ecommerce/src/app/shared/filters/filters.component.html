@@ -3,21 +3,23 @@
   <div class="group">
     <div class="label"> Ordina per </div>
     <div class="select-div">
-      <select (change)="onSelectionChange($event)">
-        <option selected value="0">Nome prodotto</option>
-        <option value="1">Quantità</option>
-      </select>
+      <mat-form-field class="customField" color="primary" appearance="outline">
+        <mat-select  (change)="onSelectionChange($event)">
+          <mat-option value="0">Nome prodotto</mat-option>
+          <mat-option value="1">Quantità</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
 
+
+<!--  TODO: sistemare CSS (passare da nero a blu) e collegare, insieme all'ordinamento, al BE-->
   <div class="group">
     <div class="label"> Prezzo </div>
     <div class="select-div">
-<!--     TODO: inserire slicer per il costo
-         Modificare la select in precedenza. Le option non possono essere modificate direttamente,
-         poiché dipendenti dal sistema operativo.
-         Utilizzare una dropdown e eseguire il binding del click di una voce del dropdown con la chiamata API.
-          -->
+      <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
+        <input matSliderThumb>
+      </mat-slider>
     </div>
   </div>
 
