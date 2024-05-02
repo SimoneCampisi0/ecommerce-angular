@@ -8,6 +8,9 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 })
 export class FiltersComponent implements OnInit{
   selectedOrder!: string;
+  dropSortLabel: string = "Ordina per";
+  dropSortOptions: string[] = ["Ascendente", "Discendente"];
+  selectedValue!: string;
 
   ngOnInit() {
     if(!this.selectedOrder) {
@@ -15,17 +18,21 @@ export class FiltersComponent implements OnInit{
     }
   }
 
-  // TODO: collegarlo con la chiamata API
-  onSelectionChange(event: any) {
-    this.selectedOrder = event.target.value;
-    console.log("valore emesso: ", this.selectedOrder)
+  onDropSortChange(event: any) {
+    console.log("select change: ", event);
   }
 
-  formatLabel(value: number): string {
-    if (value >= 1000) {
-      return Math.round(value / 1000)+"";
-    }
-
-    return `${value}`;
-  }
+  // // TODO: collegarlo con la chiamata API
+  // onSelectionChange(event: any) {
+  //   this.selectedOrder = event.target.value;
+  //   console.log("valore emesso: ", this.selectedOrder)
+  // }
+  //
+  // formatLabel(value: number): string {
+  //   if (value >= 1000) {
+  //     return Math.round(value / 1000)+"";
+  //   }
+  //
+  //   return `${value}`;
+  // }
 }

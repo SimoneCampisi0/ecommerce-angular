@@ -5,13 +5,16 @@ import {FiltersComponent} from "./filters/filters.component";
 import {MatFormField, MatLabel, MatOption, MatSelect} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
 import {MatSlider, MatSliderRangeThumb, MatSliderThumb} from "@angular/material/slider";
+import {DropdownComponent} from "./dropdown/dropdown.component";
+import {MatIcon} from "@angular/material/icon";
 
 
 
 @NgModule({
   declarations: [
     PaginatorComponent,
-    FiltersComponent
+    FiltersComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +25,8 @@ import {MatSlider, MatSliderRangeThumb, MatSliderThumb} from "@angular/material/
     MatFormField,
     MatSlider,
     MatSliderRangeThumb,
-    MatSliderThumb
+    MatSliderThumb,
+    MatIcon
   ],
   exports: [
     PaginatorComponent,

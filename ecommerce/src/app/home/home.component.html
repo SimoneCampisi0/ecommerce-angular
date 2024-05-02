@@ -2,8 +2,10 @@
 
 @if(!selectedProductHome && checkURL()) {
   <app-hero></app-hero>
-  <app-filters-component></app-filters-component>
-  <app-product-module-view></app-product-module-view>
+  <div class="content">
+    <app-filters-component></app-filters-component>
+    <app-product-module-view></app-product-module-view>
+  </div>
 } @else {
   <router-outlet></router-outlet>
 }

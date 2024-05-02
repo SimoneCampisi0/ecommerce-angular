@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="dropdown">
+    <div class="dropdown-label-content">{{ label }} <mat-icon>expand_more</mat-icon></div>
+    <div class="dropdown-content">
+      <div *ngFor="let opt of options" class="dropdown-option" (click)="onSelectValue(opt)">
+        {{ opt }}
+      </div>
+    </div>
+  </div>
+</div>

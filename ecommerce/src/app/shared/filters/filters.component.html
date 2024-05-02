@@ -1,27 +1,30 @@
-<div class="filtersLabel">
+<!--<div class="filtersLabel">-->
 
-  <div class="group">
-    <div class="label"> Ordina per </div>
-    <div class="select-div">
-      <mat-form-field class="customField" color="primary" appearance="outline">
-        <mat-select  (change)="onSelectionChange($event)">
-          <mat-option value="0">Nome prodotto</mat-option>
-          <mat-option value="1">Quantità</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
+<!--  <div class="group">-->
+<!--    <div class="select-div">-->
+<!--      <mat-form-field class="customField" color="primary" appearance="outline">-->
+<!--        <mat-select  (change)="onSelectionChange($event)">-->
+<!--          <mat-option value="0">Nome prodotto</mat-option>-->
+<!--          <mat-option value="1">Quantità</mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--  </div>-->
 
 
-<!--  TODO: sistemare CSS (passare da nero a blu) e collegare, insieme all'ordinamento, al BE-->
-  <div class="group">
-    <div class="label"> Prezzo </div>
-    <div class="select-div">
-      <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">
-        <input matSliderThumb>
-      </mat-slider>
-    </div>
-  </div>
+<!--&lt;!&ndash;&lt;!&ndash;  TODO: sistemare CSS (passare da nero a blu) e collegare, insieme all'ordinamento, al BE&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="group">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="label"> Prezzo </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="select-div">&ndash;&gt;-->
+<!--&lt;!&ndash;      <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input matSliderThumb>&ndash;&gt;-->
+<!--&lt;!&ndash;      </mat-slider>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
 
-</div>
-
+<!--</div>-->
+<app-dropdown
+  [label]="dropSortLabel"
+  [options]="dropSortOptions"
+  (selectedValue)="onDropSortChange($event)"
+></app-dropdown>
