@@ -38,3 +38,7 @@
 .dropdown-option:hover {
   background-color: #dedede;
 }
+
+.mat-icon.mat-icon-close:hover {
+  color: var(--primary-color);
+}

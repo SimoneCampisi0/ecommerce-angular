@@ -12,8 +12,8 @@ import Swal from "sweetalert2";
 })
 export class LoginPageComponent {
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, Validators.required),
   })
 
   constructor(private router: Router, private authService: AuthService) {}

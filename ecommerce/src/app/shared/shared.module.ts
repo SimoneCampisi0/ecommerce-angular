@@ -13,8 +13,7 @@ import {MatIcon} from "@angular/material/icon";
 @NgModule({
   declarations: [
     PaginatorComponent,
-    FiltersComponent,
-    DropdownComponent
+    FiltersComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +25,8 @@ import {MatIcon} from "@angular/material/icon";
     MatSlider,
     MatSliderRangeThumb,
     MatSliderThumb,
-    MatIcon
+    MatIcon,
+    DropdownComponent
   ],
   exports: [
     PaginatorComponent,

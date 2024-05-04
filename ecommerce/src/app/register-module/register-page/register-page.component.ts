@@ -21,18 +21,18 @@ export class RegisterPageComponent {
   anagraficaRequest: CreateAnagraficaRequest
 
   registerForm = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    cognome: new FormControl('', Validators.required),
-    dataNascita: new FormControl('', Validators.required),
-    sesso: new FormControl('', Validators.required),
-    comune: new FormControl('', Validators.required),
-    stato: new FormControl('', Validators.required),
-    provincia: new FormControl('', Validators.required),
-    indirizzo: new FormControl('', Validators.required),
-    civico: new FormControl('', Validators.required),
-    cap: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required)
+    nome: new FormControl(null, Validators.required),
+    cognome: new FormControl(null, Validators.required),
+    dataNascita: new FormControl(null, Validators.required),
+    sesso: new FormControl(null, Validators.required),
+    comune: new FormControl(null, Validators.required),
+    stato: new FormControl(null, Validators.required),
+    provincia: new FormControl(null, Validators.required),
+    indirizzo: new FormControl(null, Validators.required),
+    civico: new FormControl(null, Validators.required),
+    cap: new FormControl(null, Validators.required),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, Validators.required)
   });
 
 

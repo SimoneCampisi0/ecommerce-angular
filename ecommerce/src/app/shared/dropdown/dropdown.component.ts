@@ -1,25 +1,46 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgForOf, NgIf} from '@angular/common';
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
-  selector: 'app-dropdown',
+  selector: 'dropdown-standalone',
+  standalone: true,
   templateUrl: './dropdown.component.html',
-  styleUrl: './dropdown.component.css'
+  styleUrl: './dropdown.component.css',
+  imports: [
+    MatIcon,
+    NgForOf,
+    NgIf
+  ],
 })
 export class DropdownComponent implements OnInit{
-  @Input() label!: string;
+  @Input() labelFromInput!: string;
+  label!: string;
   @Input() options!: any[];
   @Input() defaultValue!: any;
+  value: any;
   @Output() selectedValue = new EventEmitter<any>();
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
+    this.setDefaultValue();
   }
+
+  setDefaultValue() {
+    this.value = null;
+    this.label = this.labelFromInput
+  }
+
 
   onSelectValue(value: any) {
     this.label = value;
-    this.selectedValue.emit(value);
+    this.value = value
+    this.selectedValue.emit(this.value);
+  }
+
+  onCloseEvent() {
+    console.log("close");
+    this.setDefaultValue();
   }
 }
