@@ -70,11 +70,16 @@ export class RegisterPageComponent {
         this.registerForm.value.cap || "",
       )
 
+      const dateObject = new Date(this.registerForm.value.dataNascita || "");
+      const day = dateObject.getDate() < 10 ? "0"+dateObject.getDate() : dateObject.getDate();
+      const month = dateObject.getMonth() + 1 < 10 ? "0"+(dateObject.getMonth() + 1) : dateObject.getMonth();
+      const year = dateObject.getFullYear();
+      let formattedDate = `${year}-${month}-${day}`;
 
       this.anagraficaRequest = new CreateAnagraficaRequest(
         this.registerForm.value.nome || "",
         this.registerForm.value.cognome || "",
-        new Date(this.registerForm.value.dataNascita || ""),
+        formattedDate,
         // SessoEnumBuilder(this.registerForm.value.sesso || ""),
         this.registerForm.value.sesso || "",
 
@@ -97,7 +102,7 @@ export class RegisterPageComponent {
         Swal.fire({
           icon: "error",
           title: "Dati non validi",
-          text: "Si è verificato il seguente errore: "+error.toString()
+          text: "Si è verificato il seguente errore: "+error.text.toString()
         });
 
       },

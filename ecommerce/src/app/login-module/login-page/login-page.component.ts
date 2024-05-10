@@ -52,7 +52,11 @@ export class LoginPageComponent {
       },
 
       error: (err) => {
-        console.log("error: ", err)
+        Swal.fire({
+          icon: "error",
+          title: "Dati non validi",
+          text: "I dati inseriti non sono validi. Riprova"
+        });
       },
 
       complete: () => {

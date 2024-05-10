@@ -5,13 +5,13 @@ export class AbstractAnagraficaRequest {
 
   cognome: string
 
-  dataNascita: Date
+  dataNascita: string
 
   sesso: string
 
   constructor(nome: string,
               cognome: string,
-              dataNascita: Date,
+              dataNascita: string,
               sesso: string) {
     this.nome = nome
     this.cognome = cognome

@@ -7,7 +7,7 @@ export class CreateAnagraficaRequest extends AbstractAnagraficaRequest {
 
   constructor(nome: string,
               cognome: string,
-              dataNascita: Date,
+              dataNascita: string,
               sesso: string,
               luogoResidenzaRequest: CreateLuogoResidenzaRequest) {
     super(nome, cognome, dataNascita, sesso);
