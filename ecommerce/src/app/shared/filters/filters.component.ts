@@ -1,4 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ProductService} from "../../../services/product.service";
+import {SortingOrder} from "../../../dtos/enums/sorting.order";
 
 @Component({
   selector: 'app-filters-component',
@@ -12,6 +14,9 @@ export class FiltersComponent implements OnInit{
   dropSortOptions: string[] = ["Ascendente", "Discendente"];
   selectedValue!: string;
 
+  constructor(private productService: ProductService) {
+  }
+
   ngOnInit() {
     if(!this.selectedOrder) {
       this.selectedOrder = "0";
@@ -20,14 +25,9 @@ export class FiltersComponent implements OnInit{
 
   onDropSortChange(event: any) {
     console.log("select change: ", event);
+    this.productService.doQueryPaginatedList(undefined, undefined, undefined, Number(this.selectedOrder) == 0 ? SortingOrder.ASC : SortingOrder.DESC);
   }
 
-  // // TODO: collegarlo con la chiamata API
-  // onSelectionChange(event: any) {
-  //   this.selectedOrder = event.target.value;
-  //   console.log("valore emesso: ", this.selectedOrder)
-  // }
-  //
   // formatLabel(value: number): string {
   //   if (value >= 1000) {
   //     return Math.round(value / 1000)+"";

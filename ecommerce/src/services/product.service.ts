@@ -11,23 +11,49 @@ import {Page} from "../dtos/abstract/Page";
 })
 export class ProductService {
   private productsUpdated = new Subject<Page<ViewProductDTO>>();
-  private sortingFilter: string = ''
-  constructor(private http: HttpClient) {}
+  private sortingFilter!: string;
+  private pageNumber!: number;
+  private pageSize!: number;
+  private sortBy!: string;
+  private sortingOrder!: SortingOrder;
+
+  constructor(private http: HttpClient) {
+  }
 
   // Questo metodo esegue la query nel BE e associa i risultati al Subject productsUpdated, che aggiorna automaticamente i risultati in tutti gli ascoltatori.
   // Gli ascoltatori, o listeners, si sottoscrivono al metodo productsUpdatedListener()
-  doQueryPaginatedList(pageNumber: number,
-                       pageSize: number,
-                       sortBy: string,
-                       sortingOrder: SortingOrder): void {
-    let url
+  doQueryPaginatedList(pageNumber?: number,
+                       pageSize?: number,
+                       sortBy?: string,
+                       sortingOrder?: SortingOrder): void {
 
-    if(this.sortingFilter != '') {
-      url = 'http://localhost:8080/orders/products/lista-prodotti-paginata?pageNumber='+pageNumber+'&pageSize='+pageSize+'&sortBy='+sortBy+'&sortingOrder='+sortingOrder+'&sortingFilter='+this.sortingFilter
-      console.log("url: "+url)
+    console.log("pageNumber: ", pageNumber, " this.pageNumber: ", this.pageNumber)
+
+    if (!this.pageNumber && pageNumber != undefined) {
+      console.log("entro")
+      this.pageNumber = pageNumber;
+    }
+
+    if (!this.pageSize && pageSize) {
+      this.pageSize = pageSize;
+    }
+
+    if (!this.sortBy && sortBy) {
+      this.sortBy = sortBy;
+    }
+
+    if (!this.sortingOrder && sortingOrder) {
+      this.sortingOrder = sortingOrder;
+    }
+
+    let url;
+
+    if (this.sortingFilter != '') {
+      url = 'http://localhost:8080/orders/products?pageNumber=' + this.pageNumber + '&pageSize=' + this.pageSize + '&sortBy=' + this.sortBy + '&sortingOrder=' + this.sortingOrder + '&sortingFilter=' + this.sortingFilter
+      console.log("url: " + url)
     } else {
-      url = 'http://localhost:8080/orders/products/lista-prodotti-paginata?pageNumber='+pageNumber+'&pageSize='+pageSize+'&sortBy='+sortBy+'&sortingOrder='+sortingOrder
-      console.log("url: "+url)
+      url = 'http://localhost:8080/orders/products?pageNumber=' + this.pageNumber + '&pageSize=' + this.pageSize + '&sortBy=' + this.sortBy + '&sortingOrder=' + this.sortingOrder
+      console.log("url: " + url)
 
     }
 
@@ -47,7 +73,7 @@ export class ProductService {
   }
 
   getProductById(idProduct: number) {
-    return this.http.get<DetailProductDTO>('http://localhost:8080/orders/products/leggi-prodotto?idProdotto='+idProduct)
+    return this.http.get<DetailProductDTO>('http://localhost:8080/orders/products/leggi-prodotto?idProdotto=' + idProduct)
   }
 
   setSortingFilter(value: string) {

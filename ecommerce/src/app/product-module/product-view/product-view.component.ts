@@ -45,6 +45,5 @@ export class ProductViewComponent implements OnInit {
   changePageAndCallAPI(page: number) {
     this.pageNumber = page;
     this.productService.doQueryPaginatedList(this.pageNumber, this.pageSize, this.sortBy, this.sortingOrder); // effettua la query
-
   }
 }

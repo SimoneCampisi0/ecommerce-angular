@@ -36,12 +36,13 @@ export class RegisterPageComponent {
   });
 
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {
+  }
 
   checkFormWithoutEmailPassword() {
-    for(let controlName in this.registerForm.controls) {
-      if(this.registerForm.controls.hasOwnProperty(controlName) && controlName !== 'email' && controlName !== 'password') {
-        if(!this.registerForm.get(controlName)?.valid) { //Se esiste almeno un campo non valido, ritorna false
+    for (let controlName in this.registerForm.controls) {
+      if (this.registerForm.controls.hasOwnProperty(controlName) && controlName !== 'email' && controlName !== 'password') {
+        if (!this.registerForm.get(controlName)?.valid) { //Se esiste almeno un campo non valido, ritorna false
           return false;
         }
       }
@@ -53,14 +54,13 @@ export class RegisterPageComponent {
   checkRegister() {
     console.log(this.registerForm.value)
 
-    if(!this.checkFormWithoutEmailPassword()) {
+    if (!this.checkFormWithoutEmailPassword()) {
       Swal.fire({
         icon: "error",
         title: "Dati non validi",
         text: "Inserisci correttamente i dati."
       });
-    }
-    else {
+    } else {
       let luogoResidenzaRequest = new CreateLuogoResidenzaRequest(
         this.registerForm.value.stato || "",
         this.registerForm.value.provincia || "",
@@ -71,8 +71,8 @@ export class RegisterPageComponent {
       )
 
       const dateObject = new Date(this.registerForm.value.dataNascita || "");
-      const day = dateObject.getDate() < 10 ? "0"+dateObject.getDate() : dateObject.getDate();
-      const month = dateObject.getMonth() + 1 < 10 ? "0"+(dateObject.getMonth() + 1) : dateObject.getMonth();
+      const day = dateObject.getDate() < 10 ? "0" + dateObject.getDate() : dateObject.getDate();
+      const month = dateObject.getMonth() + 1 < 10 ? "0" + (dateObject.getMonth() + 1) : dateObject.getMonth();
       const year = dateObject.getFullYear();
       let formattedDate = `${year}-${month}-${day}`;
 
@@ -102,7 +102,7 @@ export class RegisterPageComponent {
         Swal.fire({
           icon: "error",
           title: "Dati non validi",
-          text: "Si è verificato il seguente errore: "+error.text.toString()
+          text: "Si è verificato il seguente errore: " + error.text.toString()
         });
 
       },
@@ -112,6 +112,6 @@ export class RegisterPageComponent {
     })
   }
 
-    protected readonly Object = Object;
+  protected readonly Object = Object;
   protected readonly SessoEnum = SessoEnum;
 }
