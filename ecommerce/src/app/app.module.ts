@@ -26,6 +26,7 @@ import {
 } from "@angular/material/card";
 import {MatFabButton} from "@angular/material/button";
 import {SharedModule} from "./shared/shared.module";
+import {ProfileModule} from "./profile-module/profile.module";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {SharedModule} from "./shared/shared.module";
     LoginModule,
     RegisterModule,
     ProductModule,
+    ProfileModule,
     MatIcon,
     MatCard,
     MatCardHeader,

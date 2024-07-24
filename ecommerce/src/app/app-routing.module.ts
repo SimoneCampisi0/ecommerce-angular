@@ -5,12 +5,14 @@ import {LoginPageComponent} from "./login-module/login-page/login-page.component
 import {RegisterPageComponent} from "./register-module/register-page/register-page.component";
 import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 import {ProductDetailComponent} from "./product-module/product-detail/product-detail.component";
+import {UserProfileComponent} from "./profile-module/detail-user-profile/user-profile.component";
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'register', component: RegisterPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'home', component: HomeComponent, children: [
-      { path: 'product/:id', component: ProductDetailComponent }
+      { path: 'product/:id', component: ProductDetailComponent },
+      { path: 'user-profile', component: UserProfileComponent },
     ]},
   { path: 'not-found', component: ErrorPageComponent },
   { path: '**', redirectTo: '/not-found'} // Rotta che include gli URL non presenti qui. Dev'essere l'ultima.

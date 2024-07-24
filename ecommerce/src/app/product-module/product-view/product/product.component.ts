@@ -35,7 +35,7 @@ export class ProductComponent implements OnInit {
   }
 
   goProductDetails() {
-    this.sharedService.changeSelectedProduct(true)
+    this.sharedService.setDisableHome(true);
 
     this.router.navigate(
       ['../', 'home', 'product', this.idProduct], {relativeTo: this.route}

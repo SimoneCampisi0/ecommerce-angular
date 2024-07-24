@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {UserResponse} from "../../dtos/UserResponse";
 import {SharedService} from "../../services/shared.service";
@@ -14,7 +14,7 @@ import {SortingOrder} from "../../dtos/enums/sorting.order";
 export class NavbarComponent implements OnInit {
   username!: string;
   searchText!: string
-  constructor(private router: Router, private productService: ProductService, private authService: AuthService, private sharedService: SharedService) {}
+  constructor(private router: Router,  private route: ActivatedRoute, private productService: ProductService, private authService: AuthService, private sharedService: SharedService) {}
 
   ngOnInit() {
     // @ts-ignore
@@ -33,9 +33,17 @@ export class NavbarComponent implements OnInit {
 
   cambiaPagina(pagina: string) {
     if(pagina === 'home') {
-      this.sharedService.changeSelectedProduct(false)
+      this.sharedService.setDisableHome(false)
     }
     this.router.navigate([pagina])
+  }
+
+  profilo() {
+    this.sharedService.setDisableHome(true);
+
+    this.router.navigate(
+      ['../', 'home', 'user-profile'], {relativeTo: this.route}
+    )
   }
 
   filterValue() {

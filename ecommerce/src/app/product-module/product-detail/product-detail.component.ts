@@ -115,7 +115,7 @@ export class ProductDetailComponent implements OnInit {
 
   @HostListener('window:popstate', ['$event'])
   onPopState() {
-    this.sharedService.changeSelectedProduct(false)
+    this.sharedService.setDisableHome(false)
   }
 
 }

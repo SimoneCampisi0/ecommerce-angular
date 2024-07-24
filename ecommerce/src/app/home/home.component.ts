@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit{
   constructor(private sharedService: SharedService, private location: Location) {
   }
   ngOnInit() {
-    this.sharedService.selectedProduct.subscribe(value => {
+    this.sharedService.disableHome.subscribe(value => {
       this.selectedProductHome = value
     })
   }

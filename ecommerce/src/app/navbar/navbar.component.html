@@ -1,8 +1,6 @@
 <div class="all">
   <img class="logo" src="../../assets/logo/logo_black.png" alt="" srcset="" (click)="cambiaPagina('home')">
 
-
-
   <div class="subCategory">
     <div class="search-container" [ngClass]="{'active' : searchText != ''}">
       <input [(ngModel)]="searchText" (input)="filterValue()" type="text" name="search" placeholder="Cerca un prodotto..." class="search-input">
@@ -15,7 +13,7 @@
       <span class="user" >Ciao, <div class="nomeUtente">{{ username }}</div></span>
 
       <div class="content">
-        <div class="profilo">Il mio profilo</div>
+        <div class="profilo" (click)="profilo()">Il mio profilo</div>
         <div class="logout" (click)="logout()">Logout</div>
       </div>
 
