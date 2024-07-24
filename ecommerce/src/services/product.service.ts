@@ -27,34 +27,36 @@ export class ProductService {
                        sortBy?: string,
                        sortingOrder?: SortingOrder): void {
 
-    console.log("pageNumber: ", pageNumber, " this.pageNumber: ", this.pageNumber)
-
-    if (!this.pageNumber && pageNumber != undefined) {
-      console.log("entro")
+    if (pageNumber != null || pageNumber != undefined) {
       this.pageNumber = pageNumber;
     }
 
-    if (!this.pageSize && pageSize) {
-      this.pageSize = pageSize;
+    if (!this.pageSize || pageSize != undefined) {
+      if (pageSize) {
+        this.pageSize = pageSize;
+      }
     }
 
-    if (!this.sortBy && sortBy) {
-      this.sortBy = sortBy;
+    if (!this.sortBy || sortBy != undefined) {
+      if (sortBy) {
+        this.sortBy = sortBy;
+      }
     }
 
-    if (!this.sortingOrder && sortingOrder) {
-      this.sortingOrder = sortingOrder;
+    if (!this.sortingOrder || sortingOrder != undefined) {
+      if (sortingOrder) {
+        this.sortingOrder = sortingOrder;
+      } else {
+        this.sortingOrder = SortingOrder.ASC;
+      }
     }
 
     let url;
 
     if (this.sortingFilter != '') {
       url = 'http://localhost:8080/orders/products?pageNumber=' + this.pageNumber + '&pageSize=' + this.pageSize + '&sortBy=' + this.sortBy + '&sortingOrder=' + this.sortingOrder + '&sortingFilter=' + this.sortingFilter
-      console.log("url: " + url)
     } else {
       url = 'http://localhost:8080/orders/products?pageNumber=' + this.pageNumber + '&pageSize=' + this.pageSize + '&sortBy=' + this.sortBy + '&sortingOrder=' + this.sortingOrder
-      console.log("url: " + url)
-
     }
 
     this.http.get<any>(url)

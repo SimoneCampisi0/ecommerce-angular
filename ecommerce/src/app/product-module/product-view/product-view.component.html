@@ -3,12 +3,10 @@
 </div>
 
 <div *ngIf="paginatorResponse && productList.length !== 0">
-
-  <!--  TODO: aggiungere logica al paginaror -->
   <app-paginator [currentPage]="paginatorResponse.pageable.pageNumber"
                  [totalPages]="paginatorResponse.totalPages"
                  [totalElements]="paginatorResponse.totalElements"
-                 (nextPage)=changePageAndCallAPI($event)>
+                 (changePageEmitter)=changePageAndCallAPI($event)>
   </app-paginator>
 </div>
 

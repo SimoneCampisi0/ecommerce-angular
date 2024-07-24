@@ -27,12 +27,6 @@ export class DropdownComponent implements OnInit{
     this.setDefaultValue();
   }
 
-  setDefaultValue() {
-    this.value = null;
-    this.label = this.labelFromInput
-  }
-
-
   onSelectValue(value: any) {
     this.label = value;
     this.value = value
@@ -40,7 +34,12 @@ export class DropdownComponent implements OnInit{
   }
 
   onCloseEvent() {
-    console.log("close");
     this.setDefaultValue();
+  }
+
+  setDefaultValue() {
+    this.value = null;
+    this.label = this.labelFromInput;
+    this.selectedValue.emit();
   }
 }

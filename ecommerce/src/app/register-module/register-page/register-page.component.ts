@@ -52,8 +52,6 @@ export class RegisterPageComponent {
 
 
   checkRegister() {
-    console.log(this.registerForm.value)
-
     if (!this.checkFormWithoutEmailPassword()) {
       Swal.fire({
         icon: "error",
@@ -84,8 +82,6 @@ export class RegisterPageComponent {
         this.registerForm.value.sesso || "",
 
         luogoResidenzaRequest)
-
-      console.log("Anagrafica Request: ", this.anagraficaRequest)
 
       this.fase = 1
     }

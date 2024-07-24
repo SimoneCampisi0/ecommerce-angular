@@ -13,6 +13,7 @@ export class FiltersComponent implements OnInit{
   dropSortLabel: string = "Ordina per";
   dropSortOptions: string[] = ["Ascendente", "Discendente"];
   selectedValue!: string;
+  sortingOrder!: SortingOrder;
 
   constructor(private productService: ProductService) {
   }
@@ -24,8 +25,13 @@ export class FiltersComponent implements OnInit{
   }
 
   onDropSortChange(event: any) {
-    console.log("select change: ", event);
-    this.productService.doQueryPaginatedList(undefined, undefined, undefined, Number(this.selectedOrder) == 0 ? SortingOrder.ASC : SortingOrder.DESC);
+    if(event === 'Discendente') {
+      this.sortingOrder = SortingOrder.DESC;
+    } else {
+      this.sortingOrder = SortingOrder.ASC;
+    }
+
+    this.productService.doQueryPaginatedList(undefined, undefined, undefined, this.sortingOrder);
   }
 
   // formatLabel(value: number): string {

@@ -22,7 +22,6 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.setDecimalPart()
-    console.log("idProduct: "+this.idProduct)
   }
 
   setDecimalPart() {

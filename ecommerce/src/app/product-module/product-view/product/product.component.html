@@ -1,12 +1,13 @@
 <div class="card" (click)="goProductDetails()">
-    <img [src]="urlImg" class="cover" alt="{{ titolo }} Image">
+<!--    <img [src]="urlImg" class="cover" alt="{{ titolo }} Image">-->
+  <img src="assets/example.png" class="cover" alt="{{ titolo }} Image">
 
   <hr class="line0">
 
   <div class="menu">
     <!-- Ridurre la lunghezza del titolo -->
     <div class="titolo"> {{ titolo | shorten: 30 }}</div>
-    <div class="autore">Di <b></b></div>
+    <div class="autore">Di <b>Mario Rossi</b></div>
 
     <div class="prezzoTotale">
 <!--      <div class="prezzoIntero">{{ costoIntero }}.&thinsp;</div>-->

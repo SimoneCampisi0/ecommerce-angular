@@ -30,8 +30,6 @@ export class LoginPageComponent {
   }
 
   checkLogin() {
-    console.log("check: "+this.checkFormWithoutEmailAndPassword())
-
     if(!this.checkFormWithoutEmailAndPassword()) {
       Swal.fire({
         icon: "error",

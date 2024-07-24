@@ -9,7 +9,7 @@ export class PaginatorComponent implements OnInit{
   @Input() currentPage!: number
   @Input() totalPages!: number
   @Input() totalElements!: number
-  @Output() nextPage = new EventEmitter<number>();
+  @Output() changePageEmitter = new EventEmitter<number>();
 
   // Array che rappresenta le pagine mostrate sul paginator
   visiblePages!: number[]
@@ -37,8 +37,7 @@ export class PaginatorComponent implements OnInit{
   changePage(pageToChange: number) {
     this.currentPage = pageToChange - 1;
     this.updateVisiblePages();
-
-    this.nextPage.emit(this.currentPage)
+    this.changePageEmitter.emit(this.currentPage)
   }
 
 
