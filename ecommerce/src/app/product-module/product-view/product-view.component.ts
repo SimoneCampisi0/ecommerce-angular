@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {SortingOrder} from "../../../dtos/enums/sorting.order";
 import {ViewProductDTO} from "../../../dtos/ViewProductDTO";
 import {ProductService} from "../../../services/product.service";
 import {Page} from "../../../dtos/abstract/Page";
